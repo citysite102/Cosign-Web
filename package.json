@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --devtool eval --progress --colors --inline --hot --content-base build",
-    "start": "webpack-dev-server --inline --hot",
+    "dev": "webpack-dev-server --inline --hot",
+    "start": "node server.js",
     "build": "webpack",
     "pub": " webpack --config webpack.pub.config.js -p",
     "test": "echo \"Error: no test specified\" && exit 1"
