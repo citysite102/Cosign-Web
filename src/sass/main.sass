@@ -1,0 +1,96 @@
+@import '~styles/fonts_config.sass'
+@import url('https://fonts.googleapis.com/css?family=Yrsa:300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+$default-background-color: #121212
+$default-footer-color: #121212
+
+$text-color-white: #FFFFFF
+$text-color-gray-light: #bbbbbb
+$text-color-gray: #888888
+$text-color-green: #5EEBA5
+$text-color-blue: #57FCF8
+$text-color-purple: #BA68FF
+
+$page-color-gray: #444444
+
+$shadow-color-blue: #3F89DD
+$shadow-color-black: rgba(0, 0, 0, 0.3)
+
+$gradient-light-blue: #5DFCF8
+$gradient-dark-blue: #3985F7
+$gradient-light-yellow: #FFE854
+$gradient-dark-yellow: #FFCB67
+
+$gradient-light-purple: #9B28DA
+$gradient-dark-purple: #853CFF
+
+$gradient-light-green: #61FAFF
+$gradient-dark-green: #18DB60
+
+@mixin size($width, $height)
+	width: $width
+	height: $height
+
+*
+	position: relative
+	color: white
+	font-family: 'Graphik'
+	// width: 100%
+
+html, body
+	background-color: $default-background-color
+	margin: 0
+	padding: 0
+	height: 100%
+	width: 100%
+
+#container
+	// max-width: 1440px
+	margin-left: auto
+	margin-right: auto
+
+section
+	margin-top: 320px
+	margin-bottom: 320px
+	padding-top: 80px
+	padding-bottom: 80px
+	background-color: transparent
+h1
+	color: $text-color-white
+	font-size: 72px
+	font-weight: 900
+	line-height: 90px
+	
+h2 
+	color: $text-color-white
+	font-size: 56px
+	font-weight: 900
+	margin-top: 32px
+	margin-bottom: 32px
+
+h3, span, a
+	color: $text-color-white
+	font-size: 25px
+	font-weight: 300
+	margin-top: 10px
+	margin-bottom: 10px
+	letter-spacing: 0px
+	line-height: 36px
+
+p
+	color: $text-color-white
+	font-size: 18px
+	font-weight: 300
+	margin-top: 2px
+	margin-bottom: 2px
+	line-height: 27px
+
+.fade-router-enter-active, .fade-router-leave-active 
+  transition: opacity 0.3s
+
+
+.fade-router-enter, .fade-router-leave-active 
+  opacity: 0
+
+

@@ -1,0 +1,35 @@
+<template lang="html">
+  <div>
+    <p class="title">
+        {{title}}
+    </p>
+    <p class="description">
+        {{description}}
+    </p>
+  </div>
+
+</template>
+
+<script>
+  export default {
+    props: ["title", "description"]
+  }
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="sass">
+
+    .title
+        font-family: 'Yrsa', serif
+        font-style: italic
+        font-size: 30px
+        font-weight: 300
+        letter-spacing: 2px
+        line-height: 34px
+
+    .description
+        margin-top: 16px
+        max-width: 400px
+
+
+</style>
