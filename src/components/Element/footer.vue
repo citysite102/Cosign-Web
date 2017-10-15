@@ -7,23 +7,17 @@
                 <!-- </el-col> -->
                 <el-col :span="20" :offset="2">
                     <ul class="link-container">
-                        <!-- <li class="footer-copyright">
-                            Cosign© 2017 All Right Reserved.
-                        </li> -->
                         <li class="link-item">
-                            <a class="link" href="/#/about">關於我們
+                            <a class="link" href="#" v-scroll-to="'.section-about'">關於我們
                             </a>
                         </li>
                         <li class="link-item">
-                            <a class="link" href="/#/about">成員列表
+                            <a class="link" href="#" v-scroll-to="'.section-member'">成員列表
                             </a>
                         </li>
                         <li class="link-item">
-                            <a class="link" href="/#/about">活動資訊
+                            <a class="link" href="#" v-scroll-to="'.section-activity'">活動資訊
                             </a>
-                        </li>
-                        <li class="footer-facebook">
-                            
                         </li>
                     </ul>
                     <div class="footer-copyright">

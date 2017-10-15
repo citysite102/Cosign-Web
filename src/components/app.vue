@@ -10,6 +10,11 @@
             </transition>
             <section class="section-landing">
                 <img class="landing-logo" src="../assets/images/cosign-logo.png"/>
+
+                <!-- <svg width="480px" height="250px" viewBox="0 0 480 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M461.176471,244.230769 C468.397948,244.230769 474.230769,238.458426 474.230769,231.371643 L474.230769,18.6283568 C474.230769,11.5404449 468.398686,5.76923077 461.176471,5.76923077 L18.8235294,5.76923077 C11.6001697,5.76923077 5.76923077,11.5397113 5.76923077,18.6283568 L5.76923077,231.371643 C5.76923077,238.459159 11.6009079,244.230769 18.8235294,244.230769 L461.176471,244.230769 Z" stroke="#231F20" stroke-width="11.5384615" fill="none" fill-rule="evenodd">
+                    </path>
+                </svg> -->
             </section>
             <section class="section-about">
                 <h1>關於我們</h1>
@@ -34,26 +39,60 @@
 
             </section>
             <section class="section-member">
-                <h1>成員列表</h1>
+                <h1>Cosign 夥伴</h1>
                 <div class="member-container">
-                    <memberCard class="member-card"></memberCard>
-                    <memberCard class="member-card"></memberCard>
-                    <memberCard class="member-card"></memberCard>
+                    <transition name="fade-delay1" @after-enter="afterEnter">
+                        <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></memberCard>
+                    </transition>
+                    <transition name="fade-delay2" @after-enter="afterEnter">
+                        <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></memberCard>
+                    </transition>
+                    <transition name="fade-delay3" @after-enter="afterEnter">
+                        <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></memberCard>
+                    </transition>
                 </div>
+                <transition name="fade-delay4">
+                    <div v-show="isMemberCardShow" class="check-more">
+                        <a href='https://www.facebook.com/groups/207617269772052/?ref=br_rs'>查看更多夥伴</a>
+                    </div>
+                </transition>
             </section>
             <section class="section-activity">
                 <h1>活動資訊</h1>
                 <div class="activity-container">
-                    <card class="activity-card"></card>
-                    <card class="activity-card"></card>
-                    <card class="activity-card"></card>
+                    <transition name="fade-delay1">
+                        <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
+                    </transition>
+                    <transition name="fade-delay2">
+                        <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
+                    </transition>
+                    <transition name="fade-delay3">
+                        <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
+                    </transition>
                 </div>
-                <div class="check-more">
-                    查看更多活動資訊
-                </div>
+                <transition name="fade-delay4">
+                    <div v-show="isActivityCardShow" class="check-more">
+                        <a href='https://www.facebook.com/groups/207617269772052/?ref=br_rs'>查看更多活動資訊</a>
+                    </div>
+                </transition>
             </section>
             <section class="section-feedback">
                 <h1>活動回饋</h1>
+                <div class="feedback-container">
+                    <feedbackCard class="feedback-card"></feedbackCard>
+                    <feedbackCard class="feedback-card" :showLeft="false" :showRight="true"></feedbackCard>
+                    <feedbackCard class="feedback-card"></feedbackCard>
+                </div> 
+                <div class="contact-container">
+                    <div class="icon-hand">
+                    </div>
+                    <div class="join-text">
+                        加入我們或者和我們聊聊
+                    </div>>
+                    <div class="contact-email">
+                        theCosignstudio@gmail.com
+                    </div>
+                </div>
             </section>
         </div>
         <footerBar></footerBar>
@@ -68,6 +107,7 @@
     import BackgroundRope from './Element/background.vue';
     import Card from './Element/card.vue';
     import MemberCard from './Element/member-card.vue';
+    import FeedbackCard from './Element/feedback-card.vue';
     import ScrollTrigger from 'scrolltrigger-classes';
     import ScrollTo from 'vue-scrollto';
     import Rellax from 'rellax';
@@ -92,11 +132,12 @@
     export default {
         data () {
             return {
+                defaultTrue: true,
                 isScrollHintShow: true,
-                isDesignContentShow: false,
-                isDeveloperContentShow: false,
-                isEducatorContentShow: false,
-                isWriterContentShow: false,
+                isMemberCardShow: false,
+                isActivityCardShow: false,
+                isActivityCardFinishShow: false,
+                isFeedbackCardShow: false,
                 isPageIndicatorShow: false,
                 pageIndex: 1,
                 projectIndex: 0,
@@ -109,6 +150,10 @@
             }
         },
         methods: {
+            afterEnter: function (el) {
+                console.log('----------here');
+                this.isActivityCardFinishShow = true;
+            },
             selectProject: function(index) {
                 console.log("Select");
                 // var projectName = document.getElementsByClassName("project-name");
@@ -169,26 +214,13 @@
 
 
                     if (scrollTop > 1400) {
-                        instance.isDesignContentShow = true;
-                        // if (scrollTop < 4300) {
-                            // instance.pageIndex = 2;
-                            // $(document).trigger('index.update', [2]);
-                        // }
+                        instance.isMemberCardShow = true;
+                    }
+                    if (scrollTop > 2600) {
+                        instance.isActivityCardShow = true;
                     }
                     if (scrollTop > 3400) {
-                        instance.isDeveloperContentShow = true;
-                    }
-                    if (scrollTop > 4300) {
-                        instance.isEducatorContentShow = true;
-                        // if (scrollTop < 5300) {
-                            // instance.pageIndex = 3;
-                            // $(document).trigger('index.update', [3]);
-                        // }
-                    }
-                    if (scrollTop > 5500) {
-                        instance.isWriterContentShow = true;
-                        // instance.pageIndex = 4;
-                        // $(document).trigger('index.update', [4]);
+                        instance.isFeedbackCardShow = true;
                     }
                 };
 
@@ -239,7 +271,8 @@
             FooterBar,
             PageIndicator,
             Card,
-            MemberCard
+            MemberCard,
+            FeedbackCard
         }
     }
 </script>
@@ -251,9 +284,17 @@
         display: none;
     
 
+    path 
+        stroke-dasharray: 2000
+        stroke-dashoffset: 2000
+        animation: dash 1.0s linear forwards
+
     .container
         margin-left: auto
         margin-right: auto
+
+    .cardAnimation
+        transition-duration: 0.4s
 
     .section-landing
         width: 100%
@@ -275,6 +316,7 @@
 
         .about-container
             padding-top: 120px
+            padding-bottom: 60px
             display: flex
             justify-content: center
             .about-item
@@ -288,9 +330,12 @@
     .section-member
         background: $default-background-color
         .member-container
+            width: 1440px
             display: flex
-            justify-content: center
+            justify-content: space-between
             margin-top: 32px
+            margin-left: auto
+            margin-right: auto
             .member-card
                 margin-left: 36px
                 margin-right: 36px
@@ -299,23 +344,134 @@
                 height: 610px
                 border: solid 1px $default-background-gray-color
 
+                &:hover
+                    transform: translateY(-16px)
+                    box-shadow: 0px 10px 20px RGBA(0,0,0,0.25)
+
+        .check-more
+            width: 1440px
+            font-weight: 300
+            margin-left: auto
+            margin-right: auto
+            margin-top: 96px
+            text-align: center
+            // pointer: cursor
+            a
+                pointer: cursor
+                text-decoration: none
+                text-align: center
+                color: #01BAD4
+                display: inline-block
+                margin-left: auto
+                margin-right: auto
+                &:hover
+                    pointer: cursor
+                    &:after
+                        transform: scale3d(1, 1, 1)
+                &:after
+                    content: ''
+                    position: absolute
+                    background: #01BAD4
+                    transition: transform 0.3s
+                    transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9)
+                    bottom: -6px
+                    left: -6px
+                    height: 3px
+                    width: calc(100% + 12px)
+                    transform: scale3d(0, 1, 1)
+                    transform-origin: 50% 50%
+
+
     .section-activity
-        height: auto
-        // background: $default-background-dark-color
         background: #f8f8f8
         // h1
         //     color: white
         .activity-container
+            width: 1440px
             display: flex
-            justify-content: center
+            justify-content: space-between
             margin-top: 32px
+            margin-left: auto
+            margin-right: auto
             .activity-card
                 margin-left: 36px
                 margin-right: 36px
+                box-shadow: 0px 5px 15px RGBA(0,0,0,0.15)
                 background: white
                 width: 420px
                 height: 610px
+
+                &:hover
+                    transform: translateY(-16px)
+                    box-shadow: 0px 10px 20px RGBA(0,0,0,0.25)
+        .check-more
+            width: 1440px
+            font-weight: 300
+            margin-left: auto
+            margin-right: auto
+            margin-top: 96px
+            text-align: center
+            pointer: cursor
+            a
+                pointer: cursor
+                text-decoration: none
+                text-align: center
+                color: #01BAD4
+                display: inline-block
+                margin-left: auto
+                margin-right: auto
+                &:hover
+                    &:after
+                        transform: scale3d(1, 1, 1)
+                &:after
+                    content: ''
+                    position: absolute
+                    background: #01BAD4
+                    transition: transform 0.2s
+                    transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9)
+                    bottom: -6px
+                    left: -6px
+                    height: 3px
+                    width: calc(100% + 12px)
+                    transform: scale3d(0, 1, 1)
+                    transform-origin: 50% 50%
+
                 
+    .section-feedback
+        height: auto
+        .feedback-container
+            .feedback-card
+                width: 1440px
+                margin-left: auto
+                margin-right: auto
+
+        .contact-container
+            width: 640px
+            margin: 120px auto
+            &:hover 
+                .icon-hand
+                    transform: rotate(20deg)
+            .icon-hand
+                width: 64px
+                height: 64px
+                transform: translateY(16px)
+                display: inline-block
+                background-size: cover
+                background-position: center
+                background-image: url('~assets/images/icon-hand.png')
+                transition-duration: 0.2s
+                transform-origin: 0% 100%
+            .join-text
+                display: inline-block
+                color: $text-color-normal
+                font-size: 44px
+                font-weight: 700
+                margin-left: 24px
+            .contact-email
+                margin-top: 24px
+                color: $text-color-gray-light
+                font-size: 24px
+                text-align: center
 
 
 
@@ -351,7 +507,7 @@
         opacity: 0
         transform: translateY(200px)
     .fade-delay1-enter-active
-        transition: all 0.8s cubic-bezier(0.22, 0.86, 0.72, 0.99)
+        transition: all 1.2s cubic-bezier(0.22, 0.86, 0.72, 0.99)
     .fade-delay1-enter-to
         opacity: 1
         transform: translateY(0px)
@@ -360,7 +516,7 @@
         opacity: 0
         transform: translateY(200px)
     .fade-delay2-enter-active
-        transition: all 0.8s cubic-bezier(0.22, 0.86, 0.72, 0.99) 0.15s
+        transition: all 1.2s cubic-bezier(0.22, 0.86, 0.72, 0.99) 0.15s
     .fade-delay2-enter-to
         opacity: 1
         transform: translateY(0px)
@@ -369,7 +525,7 @@
         opacity: 0
         transform: translateY(200px)
     .fade-delay3-enter-active
-        transition: all 0.8s cubic-bezier(0.22, 0.86, 0.72, 0.99) 0.3s
+        transition: all 1.2s cubic-bezier(0.22, 0.86, 0.72, 0.99) 0.3s
     .fade-delay3-enter-to
         opacity: 1
         transform: translateY(0px)
@@ -419,6 +575,14 @@
         animation: contentIn 0.5s ease-out 1.1s forwards
     .fade-enter-active-content
         animation: contentIn 0.8s ease-out 0.5s forwards
+
+
+    @keyframes dash 
+        from 
+            stroke-dashoffset: 2000
+  
+        to
+            stroke-dashoffset: 0
 
     @keyframes imageIn 
         0%

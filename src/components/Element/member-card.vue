@@ -88,6 +88,7 @@
         width: 100%
         border-radius: 12px
         overflow: hidden
+        
 
 
     .profile-container
@@ -123,6 +124,11 @@
                 margin-right: 8px
                 border-radius: 50%
                 background-size: cover
+                opacity: 0.7
+                transition-duration: 0.2s
+                cursor: pointer
+                &:hover
+                    opacity: 1.0
             .icon-github
                 background-image: url('~assets/images/icon-github.png')
             .icon-behance
@@ -149,6 +155,12 @@
                 margin-right: auto
                 text-align: center
                 width: 100px
+                transition-duration: 0.2s
+                cursor: pointer
+
+                &:hover
+                    color: $default-background-green-color
+                    border: 1px $default-background-green-color solid
 
 
 

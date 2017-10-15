@@ -87,6 +87,12 @@
             display: inline-block
             border-radius: 4px
             border: 1px $text-color-gray-light solid
+            cursor: pointer
+            transition-duration: 0.2s
+            &:hover
+                color: white
+                background: $text-color-gray-light
+
 
         .status-button
             padding-top: 8px
@@ -97,5 +103,9 @@
             display: inline-block
             border-radius: 4px
             float: right
+            cursor: pointer
+            transition-duration: 0.2s
+            &:hover
+                background: $default-background-dark-green-color
 
 </style>

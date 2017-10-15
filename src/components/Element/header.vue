@@ -6,18 +6,18 @@
                     <!-- <div class="menu"></div> -->
                     <!-- <menuButton></menuButton> -->
                 <!-- </el-col> -->
-                <el-col :span="21" :offset="2">
+                <el-col :span="20" :offset="2">
                     <ul class="link-container">
                         <li class="link-item">
-                            <a class="link" href="/#/about">關於我們
+                            <a class="link" href="#" v-scroll-to="'.section-about'">關於我們
                             </a>
                         </li>
                         <li class="link-item">
-                            <a class="link" href="/#/about">成員列表
+                            <a class="link" href="#" v-scroll-to="'.section-member'">成員列表
                             </a>
                         </li>
                         <li class="link-item">
-                            <a class="link" href="/#/about">活動資訊
+                            <a class="link" href="#" v-scroll-to="'.section-activity'">活動資訊
                             </a>
                         </li>
                     </ul>
@@ -29,6 +29,7 @@
 
 <script>
     import MenuButton from './menuButton.vue';
+    import ScrollTo from 'vue-scrollto';
 
     export default {
         data () {
