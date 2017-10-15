@@ -8,24 +8,16 @@
                 <!-- </el-col> -->
                 <el-col :span="21" :offset="2">
                     <ul class="link-container">
-                        <li v-if="showWorks" class="link-item">
-                            <a class="link" href="/#/">Works
-                            </a>
-                        </li>
-                        <li v-if="showAbout" class="link-item">
-                            <a class="link" href="/#/about">About
+                        <li class="link-item">
+                            <a class="link" href="/#/about">關於我們
                             </a>
                         </li>
                         <li class="link-item">
-                            <a class="link" href="https://medium.com/@citysite1025">Medium
+                            <a class="link" href="/#/about">成員列表
                             </a>
                         </li>
                         <li class="link-item">
-                            <a class="link" href="https://github.com/citysite102">Github
-                            </a>
-                        </li>
-                        <li class="link-item">
-                            <a class="link" href="https://www.facebook.com/citysite1025">Facebook
+                            <a class="link" href="/#/about">活動資訊
                             </a>
                         </li>
                     </ul>
@@ -46,16 +38,6 @@
         },
         components: {
             MenuButton
-        },
-        props: {
-            showWorks: {
-                type: Boolean,
-                default: false,
-            }, 
-            showAbout: {
-                type: Boolean,
-                default: false,
-            }
         }
     }
 </script>
@@ -67,9 +49,7 @@
 
     .header
         background-color: clear
-        // height: 180px
         width: 100%
-        // margin-bottom: -60px
         z-index: 2
         padding-top: 120px
 
@@ -103,16 +83,16 @@
             transition-duration: 0.1s
 
     .link
-        color: $text-color-gray-light
+        color: $text-color-normal
         &:hover
-            color: white
+            color: $text-color-normal
             &:after
                 transform: scale3d(1, 1, 1)
 
         &:after
             content: ''
             position: absolute
-            background: #5EEBA5
+            background: $text-color-normal
             transition: transform 0.2s
             transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9)
             bottom: -6px

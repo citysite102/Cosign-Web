@@ -9,19 +9,51 @@
                 <pageIndicator v-show="isPageIndicatorShow" class="page-control" :currentIndex="pageIndex"></pageIndicator>
             </transition>
             <section class="section-landing">
-                
+                <img class="landing-logo" src="../assets/images/cosign-logo.png"/>
             </section>
             <section class="section-about">
-                
+                <h1>關於我們</h1>
+                <h2>我們知道你總是天馬行空，有沒有可能點子能夠實現？
+我們心中誕生了一個小小想法，有沒有可能連結理念相同的人？
+所以我們有了第一次的桌遊小聚會，希望連結有著不同故事的人。
+讓我們一起 Co-Design!</h2>
+                <div class="about-container">
+                    <div class="about-item">
+                        <img class="landing-logo" src="../assets/images/icon_com.png"/>
+                        <h1>交流</h1>
+                    </div>
+                    <div class="about-item">
+                        <img class="landing-logo" src="../assets/images/icon_de.png"/>
+                        <h1>Design & Code</h1>
+                    </div>
+                    <div class="about-item">
+                        <img class="landing-logo" src="../assets/images/icon_card.png"/>
+                        <h1>桌遊</h1>
+                    </div>
+                </div>
+
             </section>
             <section class="section-member">
-                
+                <h1>成員列表</h1>
+                <div class="member-container">
+                    <memberCard class="member-card"></memberCard>
+                    <memberCard class="member-card"></memberCard>
+                    <memberCard class="member-card"></memberCard>
+                </div>
             </section>
             <section class="section-activity">
-                
+                <h1>活動資訊</h1>
+                <div class="activity-container">
+                    <card class="activity-card"></card>
+                    <card class="activity-card"></card>
+                    <card class="activity-card"></card>
+                </div>
+                <div class="check-more">
+                    查看更多活動資訊
+                </div>
             </section>
             <section class="section-feedback">
-                
+                <h1>活動回饋</h1>
             </section>
         </div>
         <footerBar></footerBar>
@@ -34,11 +66,8 @@
     import FooterBar from './Element/footer.vue';
     import PageIndicator from './Element/pageIndication.vue';
     import BackgroundRope from './Element/background.vue';
-    import HoverPicture from './Element/hoverPicture.vue';
-    import TitleContainer from './Element/title.vue';
-    import WorksContainer from './Element/works.vue';
-    import ArticleContainer from './Element/article.vue';
-    import MoreButton from './Element/moreButton.vue';
+    import Card from './Element/card.vue';
+    import MemberCard from './Element/member-card.vue';
     import ScrollTrigger from 'scrolltrigger-classes';
     import ScrollTo from 'vue-scrollto';
     import Rellax from 'rellax';
@@ -171,14 +200,14 @@
                 console.log(document.body.style.height);
                 var aboutSection = document.getElementsByClassName("section-about");
                 console.log(aboutSection);
-                if (windowHeight > 1200) {
-                    aboutSection[0].style.height = windowHeight-320 + 'px';
-                    aboutSection[0].style.marginTop = (windowHeight-1200)*0.5+64 + 'px';
-                } else {
-                    aboutSection[0].style.height = 720 + 'px';
+                // if (windowHeight > 1200) {
+                //     aboutSection[0].style.height = windowHeight-320 + 'px';
+                //     aboutSection[0].style.marginTop = (windowHeight-1200)*0.5+64 + 'px';
+                // } else {
+                    // aboutSection[0].style.height = 720 + 'px';
                     // aboutSection[0].style.marginTop = 64 + 'px';
 
-                }
+                // }
             }
         },
         created() {
@@ -199,54 +228,6 @@
             this.isEducatorContentShow = false;
             this.isWriterContentShow = false;
             this.setWindowHeight()
-            $('.header-picture-container').tilt({
-                // glare: true,
-                scale: 1.05,
-                perspective: 1500,
-                transition: true,
-                speed: 2000
-            });
-            $('.work-1-container').tilt({
-                scale: 1.1,
-                maxGlare: .5,
-                perspective: 1500,
-                transition: true
-            });
-            $('.work-2-container').tilt({
-                scale: 1.1,
-                perspective: 1500,
-                transition: true
-            });
-            $('.work-3-container').tilt({
-                scale: 1.1,
-                perspective: 1500,
-                transition: true
-            });
-            $('.work-4-container').tilt({
-                scale: 1.1,
-                perspective: 1500,
-                transition: true
-            });
-            $('.developer-container').tilt({
-                scale: 1.02,
-                perspective: 3000,
-                transition: true
-            });
-            $('.educator-work-1').tilt({
-                scale: 1.05,
-                perspective: 900,
-                transition: true
-            });
-            $('.educator-work-2').tilt({
-                scale: 1.05,
-                perspective: 900,
-                transition: true
-            });
-            $('.educator-work-3').tilt({
-                scale: 1.05,
-                perspective: 900,
-                transition: true
-            });
             var rellax = new Rellax('.rellax', {
                 speed: 4,
                 center: false,
@@ -256,13 +237,9 @@
         components: {
             HeaderBar,
             FooterBar,
-            TitleContainer,
-            WorksContainer,
-            ArticleContainer,
-            BackgroundRope,
-            HoverPicture,
-            MoreButton,
-            PageIndicator
+            PageIndicator,
+            Card,
+            MemberCard
         }
     }
 </script>
@@ -273,10 +250,74 @@
     [v-cloak]
         display: none;
     
+
     .container
-        max-width: 2200px
         margin-left: auto
         margin-right: auto
+
+    .section-landing
+        width: 100%
+
+        .landing-logo
+            margin-left: auto
+            margin-right: auto
+            display: block
+            top: 50%
+            transform: translateY(-50%)
+
+    .section-about
+        background: #f8f8f8
+        height: auto
+        h2
+            max-width: 800px
+            margin-left: auto
+            margin-right: auto
+
+        .about-container
+            padding-top: 120px
+            display: flex
+            justify-content: center
+            .about-item
+                margin-left: 72px
+                margin-right: 72px
+                h1
+                    font-size: 30px
+                    font-weight: 500
+                    line-height: 40px
+
+    .section-member
+        background: $default-background-color
+        .member-container
+            display: flex
+            justify-content: center
+            margin-top: 32px
+            .member-card
+                margin-left: 36px
+                margin-right: 36px
+                background: white
+                width: 420px
+                height: 610px
+                border: solid 1px $default-background-gray-color
+
+    .section-activity
+        height: auto
+        // background: $default-background-dark-color
+        background: #f8f8f8
+        // h1
+        //     color: white
+        .activity-container
+            display: flex
+            justify-content: center
+            margin-top: 32px
+            .activity-card
+                margin-left: 36px
+                margin-right: 36px
+                background: white
+                width: 420px
+                height: 610px
+                
+
+
 
     
     .hiddenClass 

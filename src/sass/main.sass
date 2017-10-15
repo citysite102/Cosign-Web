@@ -1,16 +1,15 @@
-@import '~styles/fonts_config.sass'
-@import url('https://fonts.googleapis.com/css?family=Yrsa:300,400,500');
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i');
 
-$default-background-color: #121212
-$default-footer-color: #121212
+$default-background-color: #ffffff
+$default-background-dark-color: #191919
+$default-background-gray-color: #dddddd
+$default-background-green-color: #4CDC6A
+$default-footer-color: #191919
 
-$text-color-white: #FFFFFF
-$text-color-gray-light: #bbbbbb
-$text-color-gray: #888888
-$text-color-green: #5EEBA5
-$text-color-blue: #57FCF8
-$text-color-purple: #BA68FF
+$text-color-normal: #191919
+$text-color-gray-super-light: #aaaaaa
+$text-color-gray-light: #777777
+$text-color-gray: #666666
 
 $page-color-gray: #444444
 
@@ -35,51 +34,51 @@ $gradient-dark-green: #18DB60
 *
 	position: relative
 	color: white
-	font-family: 'Graphik'
-	// width: 100%
-
+	font-family: 'Noto Sans', sans-serif
 html, body
 	background-color: $default-background-color
-	margin: 0
-	padding: 0
-	height: 100%
-	width: 100%
+	margin: 0px
+	padding: 0px
 
 #container
-	// max-width: 1440px
 	margin-left: auto
 	margin-right: auto
 
 section
-	margin-top: 320px
-	margin-bottom: 320px
-	padding-top: 80px
-	padding-bottom: 80px
+	height: 960px
 	background-color: transparent
+	width: 100%
+	h1
+		text-align: center
 h1
-	color: $text-color-white
-	font-size: 72px
-	font-weight: 900
+	color: $text-color-normal
+	font-size: 36px
+	font-weight: 700
 	line-height: 90px
+	display: block
+	margin-top: 16px
+	margin-bottom: 16px
 	
 h2 
-	color: $text-color-white
-	font-size: 56px
-	font-weight: 900
-	margin-top: 32px
-	margin-bottom: 32px
+	color: $text-color-normal
+	font-size: 24px
+	font-weight: 300
+	margin-top: 16px
+	margin-bottom: 16px
+	text-align: center
+	line-height: 40px
 
 h3, span, a
-	color: $text-color-white
-	font-size: 25px
+	color: $text-color-normal
+	font-size: 24px
 	font-weight: 300
 	margin-top: 10px
 	margin-bottom: 10px
 	letter-spacing: 0px
-	line-height: 36px
+	line-height: 30px
 
 p
-	color: $text-color-white
+	color: $text-color-normal
 	font-size: 18px
 	font-weight: 300
 	margin-top: 2px

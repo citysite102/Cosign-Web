@@ -1,13 +1,36 @@
 <template lang="html">
     <div class="footer">
         <el-row :gutter="16">
-            <el-col :span="20" :offset="2">
-                <!-- <h3>CONTACT ME</h3> -->
-                <p class="first-title">citysite1025@gmail.com</p>
-                <p>+886 938-126-399</p>
-                <p>© Copyright 2017 Samuel Kao - All Rights Reserved</p>
-            </el-col>
-        </el-row>
+                <!-- <el-col :span="10" :offset="1"> -->
+                    <!-- <div class="menu"></div> -->
+                    <!-- <menuButton></menuButton> -->
+                <!-- </el-col> -->
+                <el-col :span="20" :offset="2">
+                    <ul class="link-container">
+                        <!-- <li class="footer-copyright">
+                            Cosign© 2017 All Right Reserved.
+                        </li> -->
+                        <li class="link-item">
+                            <a class="link" href="/#/about">關於我們
+                            </a>
+                        </li>
+                        <li class="link-item">
+                            <a class="link" href="/#/about">成員列表
+                            </a>
+                        </li>
+                        <li class="link-item">
+                            <a class="link" href="/#/about">活動資訊
+                            </a>
+                        </li>
+                        <li class="footer-facebook">
+                            
+                        </li>
+                    </ul>
+                    <div class="footer-copyright">
+                        Cosign© 2017 All Right Reserved.
+                    </div>
+                </el-col>
+            </el-row>
     </div>
 
 </template>
@@ -24,26 +47,46 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="sass">
-    @import url('https://fonts.googleapis.com/css?family=Yrsa:300,400,500');
     @import '~styles/main.sass';
 
     .footer
-        background: $default-footer-color
-        padding-bottom: 80px
-        height: 72px
-        text-align: center
-        h3
-            font-family: 'Graphik'
-            font-weight: 600
-            margin-top: 40px
-            color: $text-color-gray-light
-        p
-            font-family: 'Yrsa', serif
-            font-weight: 300
-            font-size: 20px
-            color: $text-color-gray-light
+        background-color: $default-footer-color
+        height: 100%
+        padding: 48px
+        text-align: center  // 注意，ul, li 要用text-aligh 來放到中間中
 
-    .first-title
-        margin-top: 32px
+        .footer-copyright
+            margin-top: 24px
+            font-size: 20px
+            transform: translateX(-16px)
+
+        .link-container
+            vertical-align: bottom
+            display: inline-block
+            top: 50%
+            padding: 0px
+
+            .link-item
+                list-style: none
+                display: inline-block
+                width: auto
+                margin-right: 60px
+                font-size: 22px
+                a
+                    font-size: 22px
+                    color: white
+                    text-decoration: none
+                    transition-duration: 0.1s
+
+            .footer-facebook
+                width: 32px
+                height: 32px
+                list-style: none
+                display: inline-block
+                transform: translateY(6px)
+                background-size: cover
+                background-position: center
+                background-image: url('~assets/images/icon-facebook.png')
+
 
 </style>
