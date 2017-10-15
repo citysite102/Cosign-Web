@@ -37,7 +37,8 @@
   export default {
     data () {
       return {
-        imageSource: '../../src/assets/images/sample-profile.jpg',
+        // imageSource: '../../src/assets/images/sample-profile.jpg',
+        imageSource: 'https://i.imgur.com/tj5Xgfa.jpg',
         name: 'Samuel',
         job: '軟體工程師 / 介面設計師',
         description: '熱愛美好的事物，設計跟攝影。如果有任何有趣或者充滿挑戰的想法歡迎一起聊聊',

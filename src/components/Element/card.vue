@@ -27,7 +27,8 @@
   export default {
     data () {
       return {
-        imageSource: '../../src/assets/images/activity-demo.png',
+        // imageSource: '../../src/assets/images/activity-demo.png',
+        imageSource: 'https://i.imgur.com/JR3ewe9.png',
         title: '掰不完的夏天_迷你聚',
         time: '2017-09-10  PM 1:30 - 5:30',
         description: '好熱，一個未完成待續的夏天。我們都背著一個偉大的目標前進著。來吧！按下參加...',

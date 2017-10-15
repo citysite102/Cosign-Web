@@ -104,14 +104,12 @@
     import HeaderBar from './Element/header.vue';
     import FooterBar from './Element/footer.vue';
     import PageIndicator from './Element/pageIndication.vue';
-    import BackgroundRope from './Element/background.vue';
     import Card from './Element/card.vue';
     import MemberCard from './Element/member-card.vue';
     import FeedbackCard from './Element/feedback-card.vue';
     import ScrollTrigger from 'scrolltrigger-classes';
     import ScrollTo from 'vue-scrollto';
     import Rellax from 'rellax';
-    import tilt from 'tilt.js';
 
 
     var VueScrollTo = require('vue-scrollto');
