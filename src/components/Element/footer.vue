@@ -19,6 +19,8 @@
                             <a class="link" href="#" v-scroll-to="'.section-activity'">活動資訊
                             </a>
                         </li>
+                        <li class="footer-facebook">
+                        </li>
                     </ul>
                     <div class="footer-copyright">
                         Cosign© 2017 All Right Reserved.
@@ -46,12 +48,12 @@
     .footer
         background-color: $default-footer-color
         height: 100%
-        padding: 48px
+        padding: 40px
         text-align: center  // 注意，ul, li 要用text-aligh 來放到中間中
 
         .footer-copyright
-            margin-top: 24px
-            font-size: 20px
+            margin-top: 8px
+            font-size: 16px
             transform: translateX(-16px)
 
         .link-container
@@ -65,16 +67,16 @@
                 display: inline-block
                 width: auto
                 margin-right: 60px
-                font-size: 22px
                 a
-                    font-size: 22px
+                    font-size: 20px
+                    font-weight: 400
                     color: white
                     text-decoration: none
                     transition-duration: 0.1s
 
             .footer-facebook
-                width: 32px
-                height: 32px
+                width: 28px
+                height: 28px
                 list-style: none
                 display: inline-block
                 transform: translateY(6px)

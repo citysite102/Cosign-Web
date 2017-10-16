@@ -5,9 +5,9 @@
                                     appear-active-class="fade-enter-active-headerbar">
                 <headerBar :showAbout="true" :showWork="false"></headerBar>
             </transition>
-            <transition name="slide-fade">
+            <!-- <transition name="slide-fade">
                 <pageIndicator v-show="isPageIndicatorShow" class="page-control" :currentIndex="pageIndex"></pageIndicator>
-            </transition>
+            </transition> -->
             <section class="section-landing">
                 <img class="landing-logo" src="../assets/images/cosign-logo.png"/>
 
@@ -16,6 +16,8 @@
                     </path>
                 </svg> -->
             </section>
+            <!-- <div id="particleJS-container">
+            </div> -->
             <section class="section-about">
                 <h1>關於我們</h1>
                 <h2>我們知道你總是天馬行空，有沒有可能點子能夠實現？
@@ -28,8 +30,8 @@
                         <h1>交流</h1>
                     </div>
                     <div class="about-item">
-                        <img class="landing-logo" src="../assets/images/icon_de.png"/>
-                        <h1>Design & Code</h1>
+                        <img class="landing-logo-long" src="../assets/images/icon_de.png"/>
+                        <h1>設計與開發</h1>
                     </div>
                     <div class="about-item">
                         <img class="landing-logo" src="../assets/images/icon_card.png"/>
@@ -110,6 +112,7 @@
     import ScrollTrigger from 'scrolltrigger-classes';
     import ScrollTo from 'vue-scrollto';
     import Rellax from 'rellax';
+    import particlesJS from '../assets/js/particles.min.js'
 
 
     var VueScrollTo = require('vue-scrollto');
@@ -148,6 +151,113 @@
             }
         },
         methods: {
+            initParticleJS () {
+                  particlesJS('particleJS-container', {
+                      "particles": {
+                        "number": {
+                          "value": 380,
+                          "density": {
+                            "enable": true,
+                            "value_area": 800
+                          }
+                        },
+                        "color": {
+                          "value": "#ff0000"
+                        },
+                        "shape": {
+                          "type": "circle",
+                          "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                          },
+                          "polygon": {
+                            "nb_sides": 5
+                          }
+                        },
+                        "opacity": {
+                          "value": 0.5,
+                          "random": false,
+                          "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                          }
+                        },
+                        "size": {
+                          "value": 3,
+                          "random": true,
+                          "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                          }
+                        },
+                        "line_linked": {
+                          "enable": true,
+                          "distance": 150,
+                          "color": "#ff0000",
+                          "opacity": 0.4,
+                          "width": 1
+                        },
+                        "move": {
+                          "enable": true,
+                          "speed": 6,
+                          "direction": "none",
+                          "random": false,
+                          "straight": false,
+                          "out_mode": "out",
+                          "bounce": false,
+                          "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                          }
+                        }
+                          },
+                          "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                          "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                          },
+                          "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                          },
+                          "resize": true
+                        },
+                        "modes": {
+                          "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                              "opacity": 1
+                            }
+                          },
+                          "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                          },
+                          "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                          },
+                          "push": {
+                            "particles_nb": 4
+                          },
+                          "remove": {
+                            "particles_nb": 2
+                          }
+                        }
+                      },
+                      "retina_detect": true
+                    });
+                },
             afterEnter: function (el) {
                 console.log('----------here');
                 this.isActivityCardFinishShow = true;
@@ -258,6 +368,9 @@
             this.isEducatorContentShow = false;
             this.isWriterContentShow = false;
             this.setWindowHeight()
+            this.$nextTick(() => {
+                this.initParticleJS()   
+            });
             var rellax = new Rellax('.rellax', {
                 speed: 4,
                 center: false,
@@ -282,6 +395,8 @@
         display: none;
     
 
+    #particleJS-container
+        height: 1000px
     path 
         stroke-dasharray: 2000
         stroke-dashoffset: 2000
@@ -296,13 +411,16 @@
 
     .section-landing
         width: 100%
+        height: 640px
 
         .landing-logo
             margin-left: auto
             margin-right: auto
             display: block
+            width: 400px
+            height: 200px
             top: 50%
-            transform: translateY(-50%)
+            transform: translateY(-80%)
 
     .section-about
         background: #f8f8f8
@@ -313,7 +431,7 @@
             margin-right: auto
 
         .about-container
-            padding-top: 120px
+            padding-top: 60px
             padding-bottom: 60px
             display: flex
             justify-content: center
@@ -321,14 +439,20 @@
                 margin-left: 72px
                 margin-right: 72px
                 h1
-                    font-size: 30px
-                    font-weight: 500
-                    line-height: 40px
+                    font-size: 24px
+                    font-weight: 400
+                    line-height: 16px
+                .landing-logo
+                    width: 180px
+                    height: 180px
+                .landing-logo-long
+                    width: 225px
+                    height: 180px
 
     .section-member
         background: $default-background-color
         .member-container
-            width: 1440px
+            width: 1200px
             display: flex
             justify-content: space-between
             margin-top: 32px
@@ -338,8 +462,8 @@
                 margin-left: 36px
                 margin-right: 36px
                 background: white
-                width: 420px
-                height: 610px
+                width: 360px
+                height: 500px
                 border: solid 1px $default-background-gray-color
 
                 &:hover
@@ -347,7 +471,7 @@
                     box-shadow: 0px 10px 20px RGBA(0,0,0,0.25)
 
         .check-more
-            width: 1440px
+            width: 1200px
             font-weight: 300
             margin-left: auto
             margin-right: auto
@@ -374,7 +498,7 @@
                     transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9)
                     bottom: -6px
                     left: -6px
-                    height: 3px
+                    height: 2px
                     width: calc(100% + 12px)
                     transform: scale3d(0, 1, 1)
                     transform-origin: 50% 50%
@@ -385,7 +509,7 @@
         // h1
         //     color: white
         .activity-container
-            width: 1440px
+            width: 1200px
             display: flex
             justify-content: space-between
             margin-top: 32px
@@ -396,14 +520,14 @@
                 margin-right: 36px
                 box-shadow: 0px 5px 15px RGBA(0,0,0,0.15)
                 background: white
-                width: 420px
-                height: 610px
+                width: 360px
+                height: 500px
 
                 &:hover
                     transform: translateY(-16px)
                     box-shadow: 0px 10px 20px RGBA(0,0,0,0.25)
         .check-more
-            width: 1440px
+            width: 1200px
             font-weight: 300
             margin-left: auto
             margin-right: auto
@@ -439,13 +563,13 @@
         height: auto
         .feedback-container
             .feedback-card
-                width: 1440px
+                width: 1200px
                 margin-left: auto
                 margin-right: auto
 
         .contact-container
-            width: 640px
-            margin: 120px auto
+            width: 560px
+            margin: 56px auto
             &:hover 
                 .icon-hand
                     transform: rotate(20deg)
@@ -462,13 +586,13 @@
             .join-text
                 display: inline-block
                 color: $text-color-normal
-                font-size: 44px
+                font-size: 36px
                 font-weight: 700
                 margin-left: 24px
             .contact-email
                 margin-top: 24px
                 color: $text-color-gray-light
-                font-size: 24px
+                font-size: 20px
                 text-align: center
 
 

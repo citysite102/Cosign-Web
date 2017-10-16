@@ -52,7 +52,7 @@
         background-color: clear
         width: 100%
         z-index: 2
-        padding-top: 120px
+        padding-top: 64px
 
     .menu
         +size(40px, 40px)
@@ -76,10 +76,10 @@
         top: 50%
         transform: translateY(-50%)
         margin-right: 60px
-        font-size: 22px
 
         a
-            font-size: 22px
+            font-size: 20px
+            font-weight: 400
             text-decoration: none
             transition-duration: 0.1s
 

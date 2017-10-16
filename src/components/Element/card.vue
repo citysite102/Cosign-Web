@@ -43,7 +43,7 @@
     @import '~styles/main.sass'
 
     .inner
-        height: 280px
+        height: 220px
         width: 100%
         border-top-right-radius: 12px
         border-top-left-radius: 12px
@@ -62,7 +62,7 @@
     .text-container
         padding: 16px 32px
         .activity-title
-            font-size: 28px
+            font-size: 24px
             font-weight: 700
             text-align: left
             margin-bottom: 4px
@@ -73,8 +73,7 @@
             font-weight: 400
 
         .activity-description
-            font-size: 20px
-            margin-top: 16px
+            margin-top: 8px
 
     .button-container
         padding: 8px 32px

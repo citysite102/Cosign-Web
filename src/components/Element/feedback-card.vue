@@ -27,7 +27,8 @@
   export default {
     data () {
       return {
-        imageSource: '../../src/assets/images/sample-profile.jpg',
+        // imageSource: '../../src/assets/images/sample-profile.jpg',
+        imageSource: 'https://i.imgur.com/tj5Xgfa.jpg',
         feedbackName: 'Samuel',
         feedbackContent: '覺得不錯，但因為現在心裡有些想做的議題，不知道未來有沒有辦法讓這活動變成能認識更多想要做side project的朋友們，anyway 覺得是很棒的開始！',
       }
@@ -69,15 +70,16 @@
             margin-left: auto
             margin-right: auto
             border-radius: 50%
+            border: solid 1px $default-background-gray-color
             background-size: cover
             background-position: center
 
         .feedback-name
             text-align: center
-            font-size: 24px
+            font-size: 20px
             font-weight: 500
-            margin-top: 20px
-            margin-bottom: 20px
+            margin-top: 16px
+            margin-bottom: 16px
             color: $text-color-normal
 
     .feedback-content
@@ -87,14 +89,12 @@
         box-sizing: border-box
         box-shadow: 0px 5px 15px RGBA(0,0,0,0.15)
         padding: 32px
-        padding-top: 40px
-        padding-bottom: 40px
         // height: 120px
         width: 68%
 
         .feedback-text
             color: $text-color-gray
-            font-size: 24px
-            line-height: 40px
+            font-size: 20px
+            line-height: 36px
 
 </style>

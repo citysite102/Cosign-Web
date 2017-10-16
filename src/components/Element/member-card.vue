@@ -70,11 +70,11 @@
     @import '~styles/main.sass'
 
     .inner
-        height: 160px
-        width: 160px
+        height: 120px
+        width: 120px
         margin-left: auto
         margin-right: auto
-        margin-top: 56px
+        margin-top: 32px
         border-radius: 50%
         border: solid 1px $default-background-gray-color
         background-size: cover
@@ -108,7 +108,7 @@
             font-weight: 400
 
         .member-description
-            font-size: 20px
+            // font-size: 20px
             margin-top: 16px
             text-align: center
 
@@ -119,10 +119,10 @@
             padding-right: 20px
             .link-icon
                 list-style: none
-                width: 40px
-                height: 40px
-                margin-left: 8px
-                margin-right: 8px
+                width: 32px
+                height: 32px
+                margin-left: 6px
+                margin-right: 6px
                 border-radius: 50%
                 background-size: cover
                 opacity: 0.7
