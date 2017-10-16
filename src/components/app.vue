@@ -321,13 +321,13 @@
                     }
 
 
-                    if (scrollTop > 1400) {
+                    if (scrollTop > 1000) {
                         instance.isMemberCardShow = true;
                     }
-                    if (scrollTop > 2600) {
+                    if (scrollTop > 2000) {
                         instance.isActivityCardShow = true;
                     }
-                    if (scrollTop > 3400) {
+                    if (scrollTop > 3000) {
                         instance.isFeedbackCardShow = true;
                     }
                 };
@@ -426,7 +426,7 @@
         background: #f8f8f8
         height: auto
         h2
-            max-width: 800px
+            max-width: 720px
             margin-left: auto
             margin-right: auto
 
@@ -439,22 +439,22 @@
                 margin-left: 72px
                 margin-right: 72px
                 h1
-                    font-size: 24px
+                    font-size: 20px
                     font-weight: 400
                     line-height: 16px
                 .landing-logo
-                    width: 180px
-                    height: 180px
+                    width: 120px
+                    height: 120px
                 .landing-logo-long
-                    width: 225px
-                    height: 180px
+                    width: 150px
+                    height: 120px
 
     .section-member
         background: $default-background-color
         .member-container
             width: 1200px
             display: flex
-            justify-content: space-between
+            justify-content: space-around
             margin-top: 32px
             margin-left: auto
             margin-right: auto
@@ -511,7 +511,7 @@
         .activity-container
             width: 1200px
             display: flex
-            justify-content: space-between
+            justify-content: space-around
             margin-top: 32px
             margin-left: auto
             margin-right: auto
