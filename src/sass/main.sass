@@ -2,7 +2,7 @@
 
 $default-background-color: #ffffff
 $default-background-dark-color: #191919
-$default-background-gray-color: #dedede
+$default-background-gray-color: #d0d0d0
 $default-background-green-color: #3CC459
 $default-background-dark-green-color: #10A841
 $default-footer-color: #191919
@@ -28,6 +28,38 @@ $gradient-dark-purple: #853CFF
 $gradient-light-green: #61FAFF
 $gradient-dark-green: #18DB60
 
+$pc-media: 960px
+$pcs-media: 959px
+$pad-media: 760px
+$pads-media: 759px
+$phone-media: 480px
+$phones-media: 479px
+
+//電腦
+@mixin pc-width() 
+	@media all and (min-width: $pc-media) 
+       	@content;
+     
+
+//平板
+@mixin pad-width() 
+	@media all and (min-width:$pad-media) and (max-width: $pcs-media) 
+            @content;
+      
+
+//小平板
+@mixin small-pad-width() 
+    @media all and (min-width: $phone-media) and (max-width:$pads-media) 
+        @content;
+      
+
+//手機
+@mixin phone-width() 
+    @media all and (max-width: $phones-media) 
+        @content
+      
+
+
 @mixin size($width, $height)
 	width: $width
 	height: $height
@@ -46,7 +78,7 @@ html, body
 	margin-right: auto
 
 section
-	height: 800px
+	height: auto
 	background-color: transparent
 	width: 100%
 	padding: 60px 0px
@@ -63,12 +95,12 @@ h1
 	
 h2 
 	color: $text-color-normal
-	font-size: 20px
+	font-size: 18px
 	font-weight: 300
 	margin-top: 8px
 	margin-bottom: 16px
 	text-align: center
-	line-height: 34px
+	line-height: 30px
 
 h3, span
 	color: $text-color-normal
@@ -80,7 +112,7 @@ h3, span
 	line-height: 26px
 
 a
-	font-size: 20px
+	font-size: 18px
 p
 	color: $text-color-normal
 	font-size: 18px

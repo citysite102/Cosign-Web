@@ -43,10 +43,14 @@
     @import '~styles/main.sass'
 
     .inner
-        height: 220px
+        height: 160px
+        background-size: cover
+        background-position: center
         width: 100%
         border-top-right-radius: 12px
         border-top-left-radius: 12px
+        @include pc-width
+            height: 220px
 
     .card-container
         height: 100%
@@ -60,51 +64,71 @@
 
 
     .text-container
-        padding: 16px 32px
+        padding: 8px 16px
+        @include pc-width
+            padding: 16px 32px
         .activity-title
-            font-size: 24px
+            font-size: 20px
             font-weight: 700
             text-align: left
-            margin-bottom: 4px
+            margin-bottom: 0px
+            @include pc-width
+                font-size: 24px
+                margin-bottom: 4px
 
         .activity-time
             color: $text-color-gray-super-light
             font-size: 9px
             font-weight: 400
+            margin-top: 0px
+            margin-bottom: 0px
 
         .activity-description
             margin-top: 8px
 
     .button-container
-        padding: 8px 32px
-
+        padding: 4px 16px
+        @include pc-width
+            padding: 8px 32px
         .more-button
             color: $text-color-gray
-            padding-top: 8px
-            padding-bottom: 8px
-            padding-left: 16px
-            padding-right: 16px
+            padding-top: 4px
+            padding-bottom: 4px
+            padding-left: 8px
+            padding-right: 8px
             display: inline-block
             border-radius: 4px
             border: 1px $text-color-gray-light solid
             cursor: pointer
             transition-duration: 0.2s
+            font-size: 16px
+            @include pc-width
+                padding-top: 8px
+                padding-bottom: 8px
+                padding-left: 16px
+                padding-right: 16px
             &:hover
                 color: white
                 background: $text-color-gray-light
 
 
         .status-button
-            padding-top: 8px
-            padding-bottom: 8px
-            padding-left: 16px
-            padding-right: 16px
+            padding-top: 4px
+            padding-bottom: 4px
+            padding-left: 8px
+            padding-right: 8px
             background: $default-background-green-color
             display: inline-block
             border-radius: 4px
             float: right
             cursor: pointer
             transition-duration: 0.2s
+            font-size: 16px
+            @include pc-width
+                padding-top: 8px
+                padding-bottom: 8px
+                padding-left: 16px
+                padding-right: 16px
             &:hover
                 background: $default-background-dark-green-color
 

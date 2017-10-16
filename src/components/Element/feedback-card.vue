@@ -87,10 +87,13 @@
         vertical-align: top
         border-radius: 12px
         box-sizing: border-box
-        box-shadow: 0px 5px 15px RGBA(0,0,0,0.15)
+        box-shadow: 0px 3px 10px RGBA(0,0,0,0.15)
         padding: 32px
-        // height: 120px
         width: 68%
+        transition-duration: 0.3s
+        &:hover
+            transform: translateY(-8px)
+            box-shadow: 0px 8px 16px RGBA(0,0,0,0.2)
 
         .feedback-text
             color: $text-color-gray

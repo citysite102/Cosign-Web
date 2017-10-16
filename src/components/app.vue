@@ -443,18 +443,19 @@
         background: #f8f8f8
         height: auto
         h2
+            width: 80%
             max-width: 720px
             margin-left: auto
             margin-right: auto
 
         .about-container
-            padding-top: 60px
-            padding-bottom: 60px
-            display: flex
-            justify-content: center
+            padding-top: 24px
+            padding-bottom: 24px
             .about-item
-                margin-left: 72px
-                margin-right: 72px
+                margin-top: 32px
+                @include pc-width
+                    margin-left: 72px
+                    margin-right: 72px
                 h1
                     font-size: 20px
                     font-weight: 400
@@ -462,39 +463,64 @@
                 .landing-logo
                     width: 120px
                     height: 120px
+                    display: block
+                    margin-left: auto
+                    margin-right: auto
+
                 .landing-logo-long
                     width: 150px
                     height: 120px
+                    display: block
+                    margin-left: auto
+                    margin-right: auto
+
+            @include pc-width
+                display: flex
+                justify-content: center
 
     .section-member
         background: $default-background-color
+
         .member-container
-            width: 1200px
-            display: flex
-            justify-content: space-around
+            width: 100%
+            max-width: 1200px
+            // display: flex
+            // justify-content: flex-start
             margin-top: 32px
             margin-left: auto
             margin-right: auto
             .member-card
-                margin-left: 36px
-                margin-right: 36px
+                margin-left: auto
+                margin-right: auto
+                margin-top: 32px
                 background: white
-                width: 360px
-                height: 500px
                 border: solid 1px $default-background-gray-color
-
+                width: 288px
+                height: 400px
                 &:hover
                     transform: translateY(-16px)
                     box-shadow: 0px 10px 20px RGBA(0,0,0,0.25)
 
+                @include pc-width
+                    margin-top: 0px
+                    margin-left: 36px
+                    margin-right: 36px
+                    width: 360px
+                    height: 500px
+
+
+            @include pc-width
+                display: flex
+                justify-content: space-around
+
         .check-more
-            width: 1200px
+            width: 100%
+            max-width: 1200px
             font-weight: 300
             margin-left: auto
             margin-right: auto
             margin-top: 96px
             text-align: center
-            // pointer: cursor
             a
                 pointer: cursor
                 text-decoration: none
@@ -526,25 +552,40 @@
         // h1
         //     color: white
         .activity-container
-            width: 1200px
-            display: flex
-            justify-content: space-around
+            width: 100%
+            max-width: 1200px
+            // display: flex
+            // justify-content: space-around
             margin-top: 32px
             margin-left: auto
             margin-right: auto
             .activity-card
-                margin-left: 36px
-                margin-right: 36px
                 box-shadow: 0px 5px 15px RGBA(0,0,0,0.15)
+                margin-left: auto
+                margin-right: auto
+                margin-top: 32px
                 background: white
-                width: 360px
-                height: 500px
+                width: 288px
+                height: 400px
+
+                @include pc-width
+                    margin-top: 0px
+                    margin-left: 36px
+                    margin-right: 36px
+                    width: 360px
+                    height: 500px
 
                 &:hover
                     transform: translateY(-16px)
                     box-shadow: 0px 10px 20px RGBA(0,0,0,0.25)
+
+            @include pc-width
+                display: flex
+                justify-content: space-around
+
         .check-more
-            width: 1200px
+            width: 100%
+            max-width: 1200px
             font-weight: 300
             margin-left: auto
             margin-right: auto
@@ -580,12 +621,14 @@
         height: auto
         .feedback-container
             .feedback-card
-                width: 1200px
+                width: 100%
+                max-width: 1200px
                 margin-left: auto
                 margin-right: auto
 
         .contact-container
-            width: 560px
+            max-width: 560px
+            width: 80%
             margin: 56px auto
             &:hover 
                 .icon-hand
@@ -603,14 +646,22 @@
             .join-text
                 display: inline-block
                 color: $text-color-normal
-                font-size: 36px
+                font-size: 30px
                 font-weight: 700
                 margin-left: 24px
-            .contact-email
-                margin-top: 24px
-                color: $text-color-gray-light
-                font-size: 20px
                 text-align: center
+                @include pc-width
+                    text-align: left
+                    font-size: 36px
+            .contact-email
+                margin-top: 16px
+                color: $text-color-gray-light
+                font-size: 16px
+                text-align: center
+                @include pc-width
+                    margin-top: 24px
+                    text-align: left
+                    font-size: 20px
 
 
 
