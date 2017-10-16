@@ -9,15 +9,17 @@
                 <pageIndicator v-show="isPageIndicatorShow" class="page-control" :currentIndex="pageIndex"></pageIndicator>
             </transition> -->
             <section class="section-landing">
-                <img class="landing-logo" src="../assets/images/cosign-logo.png"/>
+                <div id="particles"></div>
+                <transition appear appear-to-class="fade-enter-content"
+                                    appear-active-class="fade-enter-active-scroll">
+                    <img class="landing-logo" src="../assets/images/cosign-logo.png"/>
+                </transition>
 
                 <!-- <svg width="480px" height="250px" viewBox="0 0 480 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <path d="M461.176471,244.230769 C468.397948,244.230769 474.230769,238.458426 474.230769,231.371643 L474.230769,18.6283568 C474.230769,11.5404449 468.398686,5.76923077 461.176471,5.76923077 L18.8235294,5.76923077 C11.6001697,5.76923077 5.76923077,11.5397113 5.76923077,18.6283568 L5.76923077,231.371643 C5.76923077,238.459159 11.6009079,244.230769 18.8235294,244.230769 L461.176471,244.230769 Z" stroke="#231F20" stroke-width="11.5384615" fill="none" fill-rule="evenodd">
                     </path>
                 </svg> -->
             </section>
-            <!-- <div id="particleJS-container">
-            </div> -->
             <section class="section-about">
                 <h1>關於我們</h1>
                 <h2>我們知道你總是天馬行空，有沒有可能點子能夠實現？
@@ -112,8 +114,9 @@
     import ScrollTrigger from 'scrolltrigger-classes';
     import ScrollTo from 'vue-scrollto';
     import Rellax from 'rellax';
-    import particlesJS from '../assets/js/particles.min.js'
-
+    // import particlesJS from '../assets/js/particles.min.js'
+    import particles from 'particles.js'
+    // import 'particles.js/particles';
 
     var VueScrollTo = require('vue-scrollto');
     var scrollFunction;
@@ -151,119 +154,12 @@
             }
         },
         methods: {
-            initParticleJS () {
-                  particlesJS('particleJS-container', {
-                      "particles": {
-                        "number": {
-                          "value": 380,
-                          "density": {
-                            "enable": true,
-                            "value_area": 800
-                          }
-                        },
-                        "color": {
-                          "value": "#ff0000"
-                        },
-                        "shape": {
-                          "type": "circle",
-                          "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                          },
-                          "polygon": {
-                            "nb_sides": 5
-                          }
-                        },
-                        "opacity": {
-                          "value": 0.5,
-                          "random": false,
-                          "anim": {
-                            "enable": false,
-                            "speed": 1,
-                            "opacity_min": 0.1,
-                            "sync": false
-                          }
-                        },
-                        "size": {
-                          "value": 3,
-                          "random": true,
-                          "anim": {
-                            "enable": false,
-                            "speed": 40,
-                            "size_min": 0.1,
-                            "sync": false
-                          }
-                        },
-                        "line_linked": {
-                          "enable": true,
-                          "distance": 150,
-                          "color": "#ff0000",
-                          "opacity": 0.4,
-                          "width": 1
-                        },
-                        "move": {
-                          "enable": true,
-                          "speed": 6,
-                          "direction": "none",
-                          "random": false,
-                          "straight": false,
-                          "out_mode": "out",
-                          "bounce": false,
-                          "attract": {
-                            "enable": false,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                          }
-                        }
-                          },
-                          "interactivity": {
-                        "detect_on": "canvas",
-                        "events": {
-                          "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                          },
-                          "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                          },
-                          "resize": true
-                        },
-                        "modes": {
-                          "grab": {
-                            "distance": 140,
-                            "line_linked": {
-                              "opacity": 1
-                            }
-                          },
-                          "bubble": {
-                            "distance": 400,
-                            "size": 40,
-                            "duration": 2,
-                            "opacity": 8,
-                            "speed": 3
-                          },
-                          "repulse": {
-                            "distance": 200,
-                            "duration": 0.4
-                          },
-                          "push": {
-                            "particles_nb": 4
-                          },
-                          "remove": {
-                            "particles_nb": 2
-                          }
-                        }
-                      },
-                      "retina_detect": true
-                    });
-                },
             afterEnter: function (el) {
-                console.log('----------here');
+                // console.log('----------here');
                 this.isActivityCardFinishShow = true;
             },
             selectProject: function(index) {
-                console.log("Select");
+                // console.log("Select");
                 // var projectName = document.getElementsByClassName("project-name");
                 // console.log(projectName);
                 // console.log(projectName[0]);
@@ -275,8 +171,8 @@
                 let {top,bottom} = obj.getBoundingClientRect();
             },
             triggerEvent: function(instance) {
-                console.log(instance);
-                console.log("已加入");
+                // console.log(instance);
+                // console.log("已加入");
 
                 var trigger = new ScrollTrigger({
                   toggle: {
@@ -291,10 +187,9 @@
                   once: true
                 }, document.body, window);
 
-                console.log("已加入" + trigger);
 
                 var callback = function(scrollLeft, scrollTop, width, height){
-                    console.log("Left:"+scrollLeft+ " Top:"+ scrollTop);
+                    // console.log("Left:"+scrollLeft+ " Top:"+ scrollTop);
                     // console.log(instance.pageIndex);
                     // console.log($(document))
 
@@ -363,18 +258,22 @@
             // window.removeEventListener('scroll', this.handleScroll);
         },
         mounted() { 
-            console.log(this.isDesignContentShow);
-            this.isDesignContentShow = false;
-            this.isEducatorContentShow = false;
-            this.isWriterContentShow = false;
-            this.setWindowHeight()
+            // this.isDesignContentShow = false;
+            // this.isEducatorContentShow = false;
+            // this.isWriterContentShow = false;
+            // this.setWindowHeight()
+            // this.$nextTick(() => {
+                // this.initParticleJS()   
+            // });
+            // var rellax = new Rellax('.rellax', {
+            //     speed: 4,
+            //     center: false,
+            //     round: true,
+            // });
             this.$nextTick(() => {
-                this.initParticleJS()   
-            });
-            var rellax = new Rellax('.rellax', {
-                speed: 4,
-                center: false,
-                round: true,
+                const particlesJS = window.particlesJS;
+                particlesJS.load('particles','dist/particles.json', function() {
+                });
             });
         },
         components: {
@@ -395,8 +294,15 @@
         display: none;
     
 
-    #particleJS-container
-        height: 1000px
+    #particles
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        // background-color: #b61924;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+
     path 
         stroke-dasharray: 2000
         stroke-dashoffset: 2000
@@ -680,9 +586,11 @@
         opacity: 0
         transition: all 0.0s
     .fade-enter-active-headerbar
-        animation: headerBarIn 1.0s cubic-bezier(1,0.01,0.38,1) 0.6s forwards
+        animation: headerBarIn 0.6s ease-out 0.0s forwards
     .fade-enter-active-scroll
-        animation: scrollIconIn 1.0s cubic-bezier(1,0.01,0.38,1) 0.6s forwards
+        animation: scrollIconIn 0.6s ease-out 0.0s forwards
+
+
     .fade-enter-active-div-1
         animation: divSlideIn 0.4s cubic-bezier(1,0.01,0.38,1) 0.5s forwards
     .fade-enter-active-content-1
@@ -724,10 +632,10 @@
 
     @keyframes scrollIconIn
         0%
-            transform: translateY(120px)
+            transform: translateY(0px)
             opacity: 0.0
         100%
-            transform: translateY(0px)
+            transform: translateY(-80%)
             opacity: 1.0
 
     @keyframes divSlideIn 
