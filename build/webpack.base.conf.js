@@ -93,6 +93,10 @@ module.exports = {
           // Expose Jquery 為全局變量
           test: require.resolve('jquery'),
           loader: 'expose-loader?jQuery!expose-loader?$'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },

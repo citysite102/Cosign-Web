@@ -68,7 +68,7 @@
                 width: auto
                 margin-right: 60px
                 a
-                    font-size: 20px
+                    font-size: 18px
                     font-weight: 400
                     color: white
                     text-decoration: none

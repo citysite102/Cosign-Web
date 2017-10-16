@@ -78,7 +78,7 @@
         margin-right: 60px
 
         a
-            font-size: 20px
+            font-size: 18px
             font-weight: 400
             text-decoration: none
             transition-duration: 0.1s
