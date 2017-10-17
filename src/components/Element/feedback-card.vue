@@ -42,6 +42,10 @@
             type: Boolean,
             default: false,
         }
+    },
+    mounted() { 
+        // this.showLeft = true;
+        // this.showRight = false;
     }
   }
 </script>
@@ -59,11 +63,17 @@
     //     width: 100%
 
     .feedback-profile
-        display: inline-block
+        display: block
         // position: absolute
         left: 0%    
-        width: 15%
-        vertical-align: top
+        width: 100%
+
+        @include pc-width
+            left: 0%    
+            width: 15%
+            vertical-align: top
+            display: inline-block
+
         .inner
             height: 120px
             width: 120px
@@ -83,7 +93,9 @@
             color: $text-color-normal
 
     .feedback-content
-        display: inline-block
+        display: block
+        margin-left: auto
+        margin-right: auto
         vertical-align: top
         border-radius: 12px
         box-sizing: border-box
@@ -91,6 +103,11 @@
         padding: 32px
         width: 68%
         transition-duration: 0.3s
+
+        @include pc-width   
+            vertical-align: top
+            display: inline-block
+
         &:hover
             transform: translateY(-8px)
             box-shadow: 0px 8px 16px RGBA(0,0,0,0.2)

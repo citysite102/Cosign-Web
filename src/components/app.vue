@@ -84,7 +84,7 @@
                 <h1>活動回饋</h1>
                 <div class="feedback-container">
                     <feedbackCard class="feedback-card"></feedbackCard>
-                    <feedbackCard class="feedback-card" :showLeft="false" :showRight="true"></feedbackCard>
+                    <feedbackCard class="feedback-card" v-bind:showLeft=compact :showRight=!compact></feedbackCard>
                     <feedbackCard class="feedback-card"></feedbackCard>
                 </div> 
                 <div class="contact-container">
@@ -144,6 +144,7 @@
                 isActivityCardFinishShow: false,
                 isFeedbackCardShow: false,
                 isPageIndicatorShow: false,
+                compact: false,
                 pageIndex: 1,
                 projectIndex: 0,
                 projectTitles: ['Tickle', 'Kapi', 'Cosign'],
@@ -232,37 +233,36 @@
             },
             setWindowHeight: function() {
                 var windowHeight = window.innerHeight;
+                var windowWidth = window.innerWidth;
                 document.body.style.height = windowHeight + "px";
-                console.log(document.body.style.height);
-                var aboutSection = document.getElementsByClassName("section-about");
-                console.log(aboutSection);
-                // if (windowHeight > 1200) {
-                //     aboutSection[0].style.height = windowHeight-320 + 'px';
-                //     aboutSection[0].style.marginTop = (windowHeight-1200)*0.5+64 + 'px';
-                // } else {
-                    // aboutSection[0].style.height = 720 + 'px';
-                    // aboutSection[0].style.marginTop = 64 + 'px';
-
-                // }
+                console.log(windowWidth);
+                var feedbackCard = document.getElementsByClassName("feedback-card");
+                // console.log(feedbackCard[1]);
+                if (windowWidth < 920) {
+                    this.compact = true;
+                } else {
+                    this.compact = false;
+                }
             }
         },
         created() {
             // window.addEventListener('scroll', this.handleScroll);
             var instance = this;
             document.addEventListener('DOMContentLoaded', this.triggerEvent(this));
-            window.addEventListener("resize", this.setWindowHeight);
+            // window.addEventListener("resize", this.setWindowHeight);
         },
         destroyed() {
             // 記得要移除掉 Evenet Listener，否則再下一次進來這個 Component 時就會不運作
             var instance = this;
-            document.removeEventListener('DOMContentLoaded', this.triggerEvent(instance))
+            document.removeEventListener('DOMContentLoaded', this.triggerEvent(instance));
+            // document.removeEventListener('resize', this.setWindowHeight);
             // window.removeEventListener('scroll', this.handleScroll);
         },
         mounted() { 
             // this.isDesignContentShow = false;
             // this.isEducatorContentShow = false;
             // this.isWriterContentShow = false;
-            // this.setWindowHeight()
+            this.setWindowHeight()
             // this.$nextTick(() => {
                 // this.initParticleJS()   
             // });
@@ -637,22 +637,29 @@
                 width: 64px
                 height: 64px
                 transform: translateY(16px)
-                display: inline-block
+                display: block
                 background-size: cover
                 background-position: center
                 background-image: url('~assets/images/icon-hand.png')
                 transition-duration: 0.2s
                 transform-origin: 0% 100%
+                margin-left: auto
+                margin-right: auto
+                margin-bottom: 24px
+                @include pc-width
+                    display: inline-block
+                    margin-bottom: 0px
             .join-text
-                display: inline-block
+                display: block
                 color: $text-color-normal
                 font-size: 30px
                 font-weight: 700
                 margin-left: 24px
                 text-align: center
                 @include pc-width
-                    text-align: left
                     font-size: 36px
+                    display: inline-block
+                    text-align: left
             .contact-email
                 margin-top: 16px
                 color: $text-color-gray-light
@@ -662,7 +669,7 @@
                     margin-top: 24px
                     text-align: left
                     font-size: 20px
-
+                    text-align: center
 
 
     
