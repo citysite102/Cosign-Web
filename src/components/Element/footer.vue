@@ -54,7 +54,8 @@
         .footer-copyright
             margin-top: 8px
             font-size: 16px
-            transform: translateX(-16px)
+            @include pc-width
+                transform: translateX(-16px)
 
         .link-container
             vertical-align: bottom
@@ -64,9 +65,12 @@
 
             .link-item
                 list-style: none
-                display: inline-block
-                width: auto
-                margin-right: 60px
+                display: block
+                margin-bottom: 16px
+                @include pc-width
+                    display: inline-block
+                    width: auto
+                    margin-right: 60px
                 a
                     font-size: 18px
                     font-weight: 400

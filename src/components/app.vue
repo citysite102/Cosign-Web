@@ -3,7 +3,7 @@
         <div class="container">
             <transition appear appear-to-class="fade-enter-content"
                                     appear-active-class="fade-enter-active-headerbar">
-                <headerBar :showAbout="true" :showWork="false"></headerBar>
+                <headerBar v-if="!compact" :showAbout="true" :showWork="false"></headerBar>
             </transition>
             <!-- <transition name="slide-fade">
                 <pageIndicator v-show="isPageIndicatorShow" class="page-control" :currentIndex="pageIndex"></pageIndicator>
@@ -249,13 +249,13 @@
             // window.addEventListener('scroll', this.handleScroll);
             var instance = this;
             document.addEventListener('DOMContentLoaded', this.triggerEvent(this));
-            // window.addEventListener("resize", this.setWindowHeight);
+            window.addEventListener("resize", this.setWindowHeight);
         },
         destroyed() {
             // 記得要移除掉 Evenet Listener，否則再下一次進來這個 Component 時就會不運作
             var instance = this;
             document.removeEventListener('DOMContentLoaded', this.triggerEvent(instance));
-            // document.removeEventListener('resize', this.setWindowHeight);
+            document.removeEventListener('resize', this.setWindowHeight);
             // window.removeEventListener('scroll', this.handleScroll);
         },
         mounted() { 
@@ -428,7 +428,9 @@
 
     .section-landing
         width: 100%
-        height: 640px
+        height: 400px
+        @include pc-width
+            height: 640px
 
         .landing-logo
             margin-left: auto
@@ -437,7 +439,9 @@
             width: 400px
             height: 200px
             top: 50%
-            transform: translateY(-80%)
+            transform: translateY(-50%)
+            @include pc-width
+                transform: translateY(-80%)
 
     .section-about
         background: #f8f8f8
@@ -804,8 +808,10 @@
             transform: translateY(0px)
             opacity: 0.0
         100%
-            transform: translateY(-80%)
             opacity: 1.0
+            transform: translateY(-50%)
+            @include pc-width
+                transform: translateY(-80%)
 
     @keyframes divSlideIn 
         0%
