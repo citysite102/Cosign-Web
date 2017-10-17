@@ -45,34 +45,62 @@
             <section class="section-member">
                 <h1>Cosign 夥伴</h1>
                 <div class="member-container">
-                    <transition name="fade-delay1" @after-enter="afterEnter">
-                        <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></memberCard>
-                    </transition>
-                    <transition name="fade-delay2" @after-enter="afterEnter">
-                        <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></memberCard>
-                    </transition>
-                    <transition name="fade-delay3" @after-enter="afterEnter">
-                        <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></memberCard>
-                    </transition>
+                    <div class="swiper-button-prev" slot="button-prev"></div>
+                    <swiper :options="swiperOption" ref="mySwiper">
+                        <swiper-slide>
+                            <transition name="fade-delay1" @after-enter="afterEnter">
+                                <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></memberCard>
+                            </transition>
+                        </swiper-slide>
+                        <swiper-slide>
+                            <transition name="fade-delay2" @after-enter="afterEnter">
+                                <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></memberCard>
+                            </transition>
+                        </swiper-slide>
+                        <swiper-slide>
+                            <transition name="fade-delay3" @after-enter="afterEnter">
+                                <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></memberCard>
+                            </transition>
+                        </swiper-slide>
+                        <swiper-slide>
+                            <transition name="fade-delay2" @after-enter="afterEnter">
+                                <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></memberCard>
+                            </transition>
+                        </swiper-slide>
+                        <div class="swiper-pagination" slot="pagination"></div>
+                        <!-- <div class="swiper-button-prev" slot="button-prev"></div>
+                        <div class="swiper-button-next" slot="button-next"></div> -->
+                    </swiper>
+                    <div class="swiper-button-next" slot="button-next"></div>
                 </div>
                 <transition name="fade-delay4">
                     <div v-show="isMemberCardShow" class="check-more">
-                        <a href='https://www.facebook.com/groups/207617269772052/?ref=br_rs'>查看更多夥伴</a>
+                        <a href='https://www.facebook.com/groups/207617269772052/?ref=br_rs'>加入我們吧：）</a>
                     </div>
                 </transition>
             </section>
             <section class="section-activity">
                 <h1>活動資訊</h1>
                 <div class="activity-container">
-                    <transition name="fade-delay1">
-                        <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
-                    </transition>
-                    <transition name="fade-delay2">
-                        <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
-                    </transition>
-                    <transition name="fade-delay3">
-                        <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
-                    </transition>
+                    <div class="swiper-button-prev" slot="button-prev"></div>
+                    <swiper :options="swiperOption">
+                        <swiper-slide>
+                            <transition name="fade-delay1">
+                                <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
+                            </transition>
+                        </swiper-slide>
+                        <swiper-slide>
+                            <transition name="fade-delay2">
+                                <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
+                            </transition>
+                        </swiper-slide>
+                        <swiper-slide>
+                            <transition name="fade-delay3">
+                                <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
+                            </transition>
+                        </swiper-slide>
+                    </swiper>
+                    <div class="swiper-button-next" slot="button-next"></div>
                 </div>
                 <transition name="fade-delay4">
                     <div v-show="isActivityCardShow" class="check-more">
@@ -117,9 +145,13 @@
     // import particlesJS from '../assets/js/particles.min.js'
     import particles from 'particles.js'
     import particlesJson from '../assets/particle.json'
-    // import 'particles.js/particles';
 
+    require('swiper/dist/css/swiper.css')
+
+    // 用 import 也可以。
     var VueScrollTo = require('vue-scrollto');
+    var VueAwesomeSwiper = require('vue-awesome-swiper')
+
     var scrollFunction;
 
     Vue.use(VueScrollTo, {
@@ -134,9 +166,22 @@
         y: true
     });
 
+    Vue.use(VueAwesomeSwiper);
+
+
     export default {
         data () {
             return {
+                swiperOption: {
+                    // pagination: '.swiper-pagination',
+                    // paginationClickable: true,
+                    slidesPerView: 3,
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    spaceBetween: 0,
+                    observer:true,
+                    observeParents:true,
+                },
                 defaultTrue: true,
                 isScrollHintShow: true,
                 isMemberCardShow: false,
@@ -237,12 +282,17 @@
                 document.body.style.height = windowHeight + "px";
                 console.log(windowWidth);
                 var feedbackCard = document.getElementsByClassName("feedback-card");
-                // console.log(feedbackCard[1]);
                 if (windowWidth < 920) {
+                    this.swiper.params.slidesPerView = 1;
                     this.compact = true;
                 } else {
                     this.compact = false;
                 }
+            }
+        },
+        computed: {
+            swiper() {
+                return this.$refs.mySwiper.swiper
             }
         },
         created() {
@@ -403,16 +453,42 @@
 
     [v-cloak]
         display: none;
-    
+
+    .swiper-container
+        height: 520px
+        @include pc-width
+            height: 600px
+
+    .swiper-button-prev
+        width: 15px
+        height: 36px
+        background-position: center
+        background-size: cover
+        background-image: url('~assets/images/icon-page-left.png')
+        @include pc-width
+            width: 20px
+            height: 48px
+            transform: translateX(-56px)
+
+    .swiper-button-next
+        width: 15px
+        height: 36px
+        background-position: center
+        background-size: cover
+        background-image: url('~assets/images/icon-page-right.png')
+        @include pc-width
+            width: 20px
+            height: 48px
+            transform: translateX(56px)
 
     #particles
         position: absolute;
-        width: 100%;
-        height: 100%;
+        width: 100%
+        height: 100%
         // background-color: #b61924;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 50% 50%;
+        background-repeat: no-repeat
+        background-size: cover
+        background-position: 50% 50%
 
     path 
         stroke-dasharray: 2000
@@ -428,7 +504,7 @@
 
     .section-landing
         width: 100%
-        height: 400px
+        height: 480px
         @include pc-width
             height: 640px
 
@@ -506,9 +582,11 @@
                     box-shadow: 0px 10px 20px RGBA(0,0,0,0.25)
 
                 @include pc-width
-                    margin-top: 0px
-                    margin-left: 36px
-                    margin-right: 36px
+                    // margin-top: 40px
+                    // margin-left: 36px
+                    // margin-right: 36px
+                    margin-left: 0
+                    margin-right: 0
                     width: 360px
                     height: 500px
 
@@ -523,7 +601,7 @@
             font-weight: 300
             margin-left: auto
             margin-right: auto
-            margin-top: 96px
+            margin-top: 0px
             text-align: center
             a
                 pointer: cursor
@@ -573,9 +651,8 @@
                 height: 400px
 
                 @include pc-width
-                    margin-top: 0px
-                    margin-left: 36px
-                    margin-right: 36px
+                    margin-left: 0
+                    margin-right: 32px
                     width: 360px
                     height: 500px
 
@@ -593,7 +670,7 @@
             font-weight: 300
             margin-left: auto
             margin-right: auto
-            margin-top: 96px
+            margin-top: 0px
             text-align: center
             pointer: cursor
             a
