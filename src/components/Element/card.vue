@@ -72,6 +72,7 @@
             font-weight: 700
             text-align: left
             margin-bottom: 0px
+            margin-left: 0px
             @include pc-width
                 font-size: 24px
                 margin-bottom: 4px

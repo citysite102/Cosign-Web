@@ -22,10 +22,7 @@
             </section>
             <section class="section-about">
                 <h1>關於我們</h1>
-                <h2>我們知道你總是天馬行空，有沒有可能點子能夠實現？
-我們心中誕生了一個小小想法，有沒有可能連結理念相同的人？
-所以我們有了第一次的桌遊小聚會，希望連結有著不同故事的人。
-讓我們一起 Co-Design!</h2>
+                <h2>腦中總是浮現各種點子卻不知道該找誰合作，或該如何實現嗎？<br><br>在2017年的夏天，Cosign的夥伴們在不同場合的設計/工程講座活動中合作相識，除了驚豔於各自不同領域的才華與經歷之外，更在深聊後發現彼此熱愛分享的特質，與對跨界合作創業的熱忱。大家開始思考：也許能夠連結起不同故事、不同背景，但是理念相同的夥伴？<br><br>秉持著這樣的理念，這ㄧ群志同道合的夥伴成立了Cosign，一個跨領域的工程師設計師交流聚會，期待能透過「分享」「共同成長」的理念實踐，一起Co-Design！</h2>
                 <div class="about-container">
                     <div class="about-item">
                         <img class="landing-logo" src="../assets/images/icon_com.png"/>
@@ -44,6 +41,7 @@
             </section>
             <section class="section-member">
                 <h1>Cosign 夥伴</h1>
+                <h2>歡迎有著和我們一樣想法的夥伴加入 Cosign；再加入我們之前，我們誠摯地邀請你參與我們每個月的交流活動，聊聊大家的故事和目標，讓彼此更了解一些：）</h2>
                 <div class="member-container">
                     <div class="swiper-button-prev" slot="button-prev"></div>
                     <swiper :options="swiperOption" ref="mySwiper">
@@ -81,6 +79,7 @@
             </section>
             <section class="section-activity">
                 <h1>活動資訊</h1>
+                <h2>從2017年9月開始，Cosign 開始定期舉辦交流活動；在活動中各自分享工作經驗、分享自己的專業，或者單純聚在一起聊天、玩桌遊、煮火鍋；在交流會之外，我們也定期舉辦微型workshop，邀請民間高手帶著夥伴挑戰網頁開發、介面設計，目標是在共學的精神下讓夥伴們共同成長。</h2>
                 <div class="activity-container">
                     <div class="swiper-button-prev" slot="button-prev"></div>
                     <swiper :options="swiperOption">
@@ -313,8 +312,8 @@
                         } else {
                             instance.currentFeedbackIndex=1;
                         }
-                    }, 1000);
-                }, 4000);
+                    }, 500);
+                }, 5000);
             },
             shouldShowLeft: function(index) {
                 // return true;
@@ -363,7 +362,7 @@
                       }
                     },
                     "color": {
-                      "value": "#FFC9C9"
+                      "value": "random"
                     },
                     "shape": {
                       "type": "circle",
@@ -492,7 +491,7 @@
         height: 36px
         background-position: center
         background-size: cover
-        background-image: url('~assets/images/icon-page-left.png')
+        background-image: url('https://i.imgur.com/ywIpxCL.png')
         @include pc-width
             width: 20px
             height: 48px
@@ -503,7 +502,7 @@
         height: 36px
         background-position: center
         background-size: cover
-        background-image: url('~assets/images/icon-page-right.png')
+        background-image: url('https://i.imgur.com/ZVReTib.png')
         @include pc-width
             width: 20px
             height: 48px
@@ -589,6 +588,12 @@
     .section-member
         background: $default-background-color
 
+        h2
+            width: 80%
+            max-width: 720px
+            margin-left: auto
+            margin-right: auto
+
         .member-container
             width: 100%
             max-width: 1200px
@@ -659,6 +664,11 @@
 
     .section-activity
         background: #f8f8f8
+        h2
+            width: 80%
+            max-width: 720px
+            margin-left: auto
+            margin-right: auto
         // h1
         //     color: white
         .activity-container
@@ -736,7 +746,7 @@
                 width: 1200px
                 height: 800px
             .feedback-card-container
-                transition: all 2s
+                transition: all 1.5s
 
             .feedback-card
                 width: 100%
