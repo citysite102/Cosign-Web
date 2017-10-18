@@ -73,13 +73,13 @@
                 </div>
                 <transition name="fade-delay4">
                     <div v-show="isMemberCardShow" class="check-more">
-                        <a href='https://www.facebook.com/groups/207617269772052/?ref=br_rs'>加入我們吧：）</a>
+                        <a href='https://www.facebook.com/groups/207617269772052/?ref=br_rs'>加入我們！</a>
                     </div>
                 </transition>
             </section>
             <section class="section-activity">
                 <h1>活動資訊</h1>
-                <h2>從2017年9月開始，Cosign 開始定期舉辦交流活動；在活動中各自分享工作經驗、分享自己的專業，或者單純聚在一起聊天、玩桌遊、煮火鍋；在交流會之外，我們也定期舉辦微型workshop，邀請民間高手帶著夥伴挑戰網頁開發、介面設計，目標是在共學的精神下讓夥伴們共同成長。</h2>
+                <h2>從2017年9月開始，Cosign 開始定期舉辦交流活動。在活動中各自分享工作經驗、分享自己的專業，或者單純聚在一起聊天、玩桌遊、煮火鍋；在交流會之外，我們也定期舉辦微型workshop，邀請民間高手帶著夥伴挑戰網頁開發、介面設計，目標是在共學的精神下讓夥伴們共同成長。</h2>
                 <div class="activity-container">
                     <div class="swiper-button-prev" slot="button-prev"></div>
                     <swiper :options="swiperOption">
@@ -122,7 +122,7 @@
                         加入我們或者和我們聊聊
                     </div>>
                     <div class="contact-email">
-                        theCosignstudio@gmail.com
+                        <a :href="'mailto:theCosignstudio@gmail.com'">theCosignstudio@gmail.com</a>
                     </div>
                 </div>
             </section>
@@ -664,6 +664,7 @@
 
     .section-activity
         background: #f8f8f8
+        height: 900px
         h2
             width: 80%
             max-width: 720px
@@ -791,14 +792,17 @@
                     text-align: left
             .contact-email
                 margin-top: 16px
-                color: $text-color-gray-light
-                font-size: 16px
                 text-align: center
                 @include pc-width
                     margin-top: 24px
-                    text-align: left
-                    font-size: 20px
+                a
+                    color: $text-color-gray-light
+                    font-size: 16px
                     text-align: center
+                    @include pc-width
+                        text-align: left
+                        font-size: 20px
+                        text-align: center
 
 
     
