@@ -30,7 +30,7 @@
         // imageSource: '../../src/assets/images/sample-profile.jpg',
         imageSource: 'https://i.imgur.com/tj5Xgfa.jpg',
         feedbackName: 'Samuel',
-        feedbackContent: '覺得不錯，但因為現在心裡有些想做的議題，不知道未來有沒有辦法讓這活動變成能認識更多想要做side project的朋友們，anyway 覺得是很棒的開始！',
+        // feedbackContent: '覺得不錯，但因為現在心裡有些想做的議題，不知道未來有沒有辦法讓這活動變成能認識更多想要做side project的朋友們，anyway 覺得是很棒的開始！',
       }
     },
     props: {
@@ -41,6 +41,10 @@
         showRight: {
             type: Boolean,
             default: false,
+        },
+        feedbackContent: {
+            type: String,
+            default: 'Unknown'
         }
     },
     mounted() { 

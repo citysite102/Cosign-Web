@@ -110,11 +110,12 @@
             </section>
             <section class="section-feedback">
                 <h1>活動回饋</h1>
-                <div class="feedback-container">
-                    <feedbackCard class="feedback-card"></feedbackCard>
-                    <feedbackCard class="feedback-card" v-bind:showLeft=compact :showRight=!compact></feedbackCard>
-                    <feedbackCard class="feedback-card"></feedbackCard>
-                </div> 
+                <transition-group class="feedback-container" name="feedback-update" tag="p">
+                    <div v-for="(item, index) in feedbackItems"
+  v-bind:key="item" class="feedback-card-container">
+                        <feedbackCard  class="feedback-card" :feedbackContent=feedbackContent[item] :showRight="shouldShowRight(index)" :showLeft="shouldShowLeft(index)"></feedbackCard>
+                    </div>
+                </transition-group>
                 <div class="contact-container">
                     <div class="icon-hand">
                     </div>
@@ -172,6 +173,17 @@
     export default {
         data () {
             return {
+                partialIndex: 0,
+                currentFeedbackIndex: 3,
+                feedbackItems: [0, 1, 2],
+                feedbackContent: ["回饋1", 
+                "回饋2 有很多的文字敘述喔！", 
+                "回饋3", 
+                "回饋4", 
+                "回饋5", 
+                "回饋6,回饋6,回饋6,回饋6,回饋6,回饋6,回饋6,回饋6也有很多的文字敘述喔！回饋6,回饋6,回饋6,回饋6,回饋6,回饋6,回饋6,回饋6也有很多的文字敘述喔！有很多的文字敘述喔！！", 
+                "回饋7還有很多的文字敘述喔！回饋7還有很多的文字敘述喔！回饋7還有很多的文字敘述喔！回饋7還有很多的文字敘述喔！回饋7還有很多的文字敘述喔！", 
+                "回饋8"],
                 swiperOption: {
                     // pagination: '.swiper-pagination',
                     // paginationClickable: true,
@@ -288,6 +300,29 @@
                 } else {
                     this.compact = false;
                 }
+            },
+            setFeedbackTimer: function() {
+                var instance = this;
+                setInterval(function(){
+                    instance.feedbackItems.splice(0, 1);
+                    instance.partialIndex = instance.partialIndex==0 ? 1 : 0;
+                    setTimeout(function(){
+                        instance.feedbackItems.splice(2, 0, instance.currentFeedbackIndex);
+                        if (instance.currentFeedbackIndex < 7) {
+                            instance.currentFeedbackIndex++;
+                        } else {
+                            instance.currentFeedbackIndex=1;
+                        }
+                    }, 1000);
+                }, 4000);
+            },
+            shouldShowLeft: function(index) {
+                // return true;
+                return index%2 == this.partialIndex || this.compact;
+            },
+            shouldShowRight: function(index) {
+                // return false;
+                return index%2!=this.partialIndex && !this.compact;
             }
         },
         computed: {
@@ -309,17 +344,10 @@
             // window.removeEventListener('scroll', this.handleScroll);
         },
         mounted() { 
-            // this.isDesignContentShow = false;
-            // this.isEducatorContentShow = false;
-            // this.isWriterContentShow = false;
             this.setWindowHeight()
+            this.setFeedbackTimer()
             // this.$nextTick(() => {
                 // this.initParticleJS()   
-            // });
-            // var rellax = new Rellax('.rellax', {
-            //     speed: 4,
-            //     center: false,
-            //     round: true,
             // });
             this.$nextTick(() => {
                 const particlesJS = window.particlesJS;
@@ -701,11 +729,21 @@
     .section-feedback
         height: auto
         .feedback-container
+            margin-left: auto
+            margin-right: auto
+            height: 1200px
+            @include pc-width
+                width: 1200px
+                height: 800px
+            .feedback-card-container
+                transition: all 2s
+
             .feedback-card
                 width: 100%
                 max-width: 1200px
                 margin-left: auto
                 margin-right: auto
+                transition: all 1s
 
         .contact-container
             max-width: 560px
@@ -856,6 +894,18 @@
     .fade-enter-active-content
         animation: contentIn 0.8s ease-out 0.5s forwards
 
+
+    .feedback-update-enter
+        opacity: 0
+        transform: translateY(120px)
+
+    .feedback-update-leave-to
+        opacity: 0
+        
+    .feedback-update-leave-active
+        width: 100%
+        position: absolute
+        transform: translateY(-120px)
 
     @keyframes dash 
         from 
