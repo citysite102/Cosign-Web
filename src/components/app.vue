@@ -146,7 +146,7 @@
     import particles from 'particles.js'
     import particlesJson from '../assets/particle.json'
 
-    require('swiper/dist/css/swiper.css')
+    // require('swiper/dist/css/swiper.css')
 
     // 用 import 也可以。
     var VueScrollTo = require('vue-scrollto');
@@ -477,6 +477,7 @@
 
 <style scope lang="sass">
     @import '~styles/main.sass'
+    @import '~styles/swiper.css'
 
     [v-cloak]
         display: none;
