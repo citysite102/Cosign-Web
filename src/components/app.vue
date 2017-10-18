@@ -760,7 +760,10 @@
         .contact-container
             max-width: 560px
             width: 80%
-            margin: 56px auto
+            margin-left: auto
+            margin-right: auto
+            margin-top: 0px
+            margin-bottom: 32px
             &:hover 
                 .icon-hand
                     transform: rotate(20deg)
@@ -891,7 +894,9 @@
     .fade-enter-active-headerbar
         animation: headerBarIn 0.6s ease-out 0.0s forwards
     .fade-enter-active-scroll
-        animation: scrollIconIn 0.6s ease-out 0.0s forwards
+        animation: scrollIconInPhone 0.6s ease-out 0.0s forwards
+        @include pc-width
+            animation: scrollIconIn 0.6s ease-out 0.0s forwards
 
 
     .fade-enter-active-div-1
@@ -945,15 +950,23 @@
             transform: translateY(0px)
             opacity: 1.0
 
-    @keyframes scrollIconIn
+    @keyframes scrollIconInPhone
         0%
             transform: translateY(0px)
             opacity: 0.0
         100%
             opacity: 1.0
             transform: translateY(-50%)
-            @include pc-width
-                transform: translateY(-80%)
+
+    @keyframes scrollIconIn
+        0%
+            transform: translateY(0px)
+            opacity: 0.0
+        100%
+            opacity: 1.0
+            // transform: translateY(-50%)
+            // @include pc-width
+            transform: translateY(-80%)
 
     @keyframes divSlideIn 
         0%
