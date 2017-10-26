@@ -15,7 +15,7 @@
             </h3>
         </div>
         <div class="button-container">
-            <div class="more-button">查看更多</div>
+            <a class="more-button" :href="link">查看更多</a>
             <a class="status-button" v-if="status" :href="link">我要報名</a>
             <div class="status-button close-status" v-if="!status">活動結束</div>
         </div>
@@ -132,7 +132,7 @@
             display: inline-block
             border-radius: 4px
             border: 1px $text-color-gray-light solid
-            cursor: pointer
+            text-decoration: none
             transition-duration: 0.2s
             font-size: 16px
             @include pc-width

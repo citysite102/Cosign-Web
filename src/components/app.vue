@@ -9,6 +9,7 @@
                 <pageIndicator v-show="isPageIndicatorShow" class="page-control" :currentIndex="pageIndex"></pageIndicator>
             </transition> -->
             <section class="section-landing">
+                <img class="landing-bg" src="../assets/images/landing-bg.png"/>
                 <div id="particles"></div>
                 <transition appear appear-to-class="fade-enter-content"
                                     appear-active-class="fade-enter-active-scroll">
@@ -22,7 +23,7 @@
             </section>
             <section class="section-about">
                 <h1>關於我們</h1>
-                <h2>腦中總是浮現各種點子卻不知道該找誰合作，或該如何實現嗎？<br><br>在2017年的夏天，Cosign的夥伴們在不同場合的設計/工程講座活動中合作相識，除了驚豔於各自不同領域的才華與經歷之外，更在深聊後發現彼此熱愛分享的特質，與對跨界合作創業的熱忱。大家開始思考：也許能夠連結起不同故事、不同背景，但是理念相同的夥伴？<br><br>秉持著這樣的理念，這ㄧ群志同道合的夥伴成立了Cosign，一個跨領域的工程師設計師交流聚會，期待能透過「分享」「共同成長」的理念實踐，一起Co-Design！</h2>
+                <h2>在2017年的夏天，Cosign的夥伴們在不同的設計/工程講座活動中合作相識，除了驚豔於各自不同領域的才華與經歷之外，更在深聊後發現彼此熱愛分享的特質，與對跨界合作創業的熱忱。大家開始思考：也許能夠連結起不同故事、不同背景，但是理念相同的夥伴？<br><br>秉持著這樣的理念，這ㄧ群志同道合的夥伴成立了Cosign，一個跨領域的工程師設計師交流聚會，期待能透過「分享」「共同成長」的理念實踐，一起Co-Design！</h2>
                 <div class="about-container">
                     <div class="about-item">
                         <img class="landing-logo" src="../assets/images/icon_com.png"/>
@@ -86,7 +87,7 @@
                     <swiper :options="swiperOption">
                         <swiper-slide>
                             <transition name="fade-delay2">
-                                <card v-show="isActivityCardShow" class="activity-card" imageSource="https://i.imgur.com/oLTfsHm.jpg" title="霜降。還來不及跟秋天說聲嗨_迷你聚#3" description="轉眼間秋天就要結束，霜降是秋季的最後一個節氣；是時候該來一次霜降系列（牛豬雞羊）的火鍋交流聚會囉。" :status="true" link="https://www.facebook.com/events/1893827037598431/" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
+                                <card v-show="isActivityCardShow" class="activity-card" imageSource="https://i.imgur.com/oLTfsHm.jpg" title="霜降。還來不及跟秋天說聲嗨_迷你聚#3" description="轉眼秋天就要結束，霜降是秋季的最後一個節氣；是時候來一次霜降系列（牛豬雞羊）的火鍋交流聚會囉。" :status="true" link="https://www.facebook.com/events/1893827037598431/" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
                             </transition>
                         </swiper-slide>
                         <swiper-slide>
@@ -107,6 +108,17 @@
                         <a href='https://www.facebook.com/groups/207617269772052/?ref=br_rs'>查看更多活動資訊</a>
                     </div>
                 </transition>
+            </section>
+            <section class="section-photo">
+                <h1>活動照片</h1>
+                <el-carousel :interval="4000" height="640px" autoplay=true indicator-position=none>
+                    <el-carousel-item v-for="item in photoPaths" :key="item">
+                        <img class="activity-photo" :src="item">
+                    </el-carousel-item>
+                </el-carousel>
+                <div class="check-more">
+                    照片由 閃亮亮 拍攝
+                </div>
             </section>
             <section class="section-feedback">
                 <h1>活動回饋</h1>
@@ -184,6 +196,13 @@
                 "回饋6,回饋6,回饋6,回饋6,回饋6,回饋6,回饋6,回饋6也有很多的文字敘述喔！回饋6,回饋6,回饋6,回饋6,回饋6,回饋6,回饋6,回饋6也有很多的文字敘述喔！有很多的文字敘述喔！！", 
                 "回饋7還有很多的文字敘述喔！回饋7還有很多的文字敘述喔！回饋7還有很多的文字敘述喔！回饋7還有很多的文字敘述喔！回饋7還有很多的文字敘述喔！", 
                 "回饋8"],
+                photoPaths: [
+                    "../dist/activity-1.png",
+                    "../dist/activity-2.png",
+                    "../dist/activity-3.png",
+                    "../dist/activity-4.png",
+                    "../dist/activity-5.png"
+                ],
                 swiperOption: {
                     // pagination: '.swiper-pagination',
                     // paginationClickable: true,
@@ -535,7 +554,14 @@
         width: 100%
         height: 480px
         @include pc-width
-            height: 640px
+            height: 720px
+
+        .landing-bg
+            position: absolute
+            display: block
+            bottom: 0px
+            margin-left: 50%
+            transform: translateX(-50%)
 
         .landing-logo
             margin-left: auto
@@ -546,11 +572,11 @@
             top: 50%
             transform: translateY(-50%)
             @include pc-width
-                transform: translateY(-80%)
+                transform: translateY(-65%)
 
     .section-about
-        background: #f8f8f8
-        height: 600px
+        background: #fafafa
+        height: 560px
         h2
             width: 80%
             max-width: 720px
@@ -611,7 +637,7 @@
                 background: white
                 border: solid 1px $default-background-gray-color
                 width: 288px
-                height: 410px
+                height: 420px
                 &:hover
                     transform: translateY(-16px)
                     box-shadow: 0px 10px 20px RGBA(0,0,0,0.25)
@@ -665,7 +691,7 @@
 
 
     .section-activity
-        background: #f8f8f8
+        background: #fafafa
         height: 900px
         h2
             width: 80%
@@ -689,7 +715,7 @@
                 margin-top: 32px
                 background: white
                 width: 288px
-                height: 400px
+                height: 420px
 
                 @include pc-width
                     margin-left: 0
@@ -739,7 +765,19 @@
                     transform-origin: 50% 50%
 
                 
+    .section-photo
+        .check-more
+            width: 100%
+            max-width: 1200px
+            font-weight: 300
+            margin-left: auto
+            margin-right: auto
+            margin-top: 0px
+            text-align: center
+            color: $text-color-gray-light
+
     .section-feedback
+        background: #fafafa
         height: auto
         .feedback-container
             margin-left: auto
@@ -810,6 +848,29 @@
                         text-align: center
 
 
+
+    .activity-photo
+        display: block
+        margin-left: auto
+        margin-right: auto
+
+    .el-carousel
+        margin: 40px 120px
+
+    .el-carousel__item 
+        h3 
+            color: #475669
+            font-size: 14px
+            opacity: 0.75
+            line-height: 200px
+            margin: 0
+  
+    .el-carousel__item:nth-child(2n) 
+        background-color: #ffffff
+  
+  
+    .el-carousel__item:nth-child(2n+1) 
+        background-color: #ffffff
     
     .hiddenClass 
         transition: all 0.8s ease
@@ -967,7 +1028,7 @@
             opacity: 1.0
             // transform: translateY(-50%)
             // @include pc-width
-            transform: translateY(-80%)
+            transform: translateY(-65%)
 
     @keyframes divSlideIn 
         0%

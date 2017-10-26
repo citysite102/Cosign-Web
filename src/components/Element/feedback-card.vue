@@ -98,12 +98,13 @@
 
     .feedback-content
         display: block
+        background: white
         margin-left: auto
         margin-right: auto
         vertical-align: top
         border-radius: 12px
         box-sizing: border-box
-        box-shadow: 0px 3px 10px RGBA(0,0,0,0.15)
+        box-shadow: 0px 5px 15px RGBA(0,0,0,0.15)
         padding: 32px
         width: 68%
         transition-duration: 0.3s
