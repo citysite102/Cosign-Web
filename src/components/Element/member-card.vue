@@ -12,10 +12,10 @@
             </p>
             <div>
                 <ul class="link-container">
-                    <li v-if="showGithub" class="link-icon icon-github"></li>
-                    <li v-if="showMedium" class="link-icon icon-medium"></li>
-                    <li v-if="showDribbble" class="link-icon icon-dribbble"></li>
-                    <li v-if="showBehance" class="link-icon icon-behance"></li>
+                    <li v-if="showGithub" class="link-icon icon-github"><a :href="github"></a></li>
+                    <li v-if="showMedium" class="link-icon icon-medium"><a :href="medium"></a></li>
+                    <li v-if="showDribbble" class="link-icon icon-dribbble"><a :href="dribbble"></a></li>
+                    <li v-if="showBehance" class="link-icon icon-behance"><a :href="behance"></a></li>
                 </ul>
             </div>
             <div class="skill-container">
@@ -25,7 +25,7 @@
                 {{description}}
             </h3>
             <div class="button-container-member">
-                <div class="friend-button">交個朋友</div>
+                <a class="friend-button" :href="facebook">交個朋友</a>
             </div>
         </div>
     </div>
@@ -37,11 +37,6 @@
   export default {
     data () {
       return {
-        // imageSource: '../../src/assets/images/sample-profile.jpg',
-        imageSource: 'https://i.imgur.com/tj5Xgfa.jpg',
-        name: 'Samuel',
-        job: '軟體工程師 / 介面設計師',
-        description: '熱愛美好的事物，設計跟攝影。如果有任何有趣或者充滿挑戰的想法歡迎一起聊聊，一起聊聊',
       }
     },
     props: {
@@ -49,17 +44,53 @@
             type: Boolean,
             default: true,
         }, 
+        github: {
+            type: String,
+            default: "https://github.com/citysite102",
+        },
         showMedium: {
             type: Boolean,
             default: true,
+        },
+        medium: {
+            type: String,
+            default: "https://medium.com/@citysite1025",
         },
         showDribbble: {
             type: Boolean,
             default: false,
         },
+        dribbble: {
+            type: String,
+            default: "https://dribbble.com",
+        },
         showBehance: {
             type: Boolean,
-            default: true,
+            default: false,
+        },
+        behance: {
+            type: String,
+            default: "https://www.behance.net",
+        },
+        imageSource: {
+            type: String,
+            default: "https://i.imgur.com/tj5Xgfa.jpg",
+        },
+        name: {
+            type: String,
+            default: "Samuel",
+        },
+        job: {
+            type: String,
+            default: "軟體工程師 / 介面設計師",
+        },
+        description: {
+            type: String,
+            default: "熱愛美好的事物，設計跟攝影。如果有任何有趣或者充滿挑戰的想法歡迎一起聊聊。",
+        },
+        facebook: {
+            type: String,
+            default: "https://www.facebook.com/citysite1025",
         }
     }
   }
@@ -156,6 +187,10 @@
                     margin-right: 6px
                 &:hover
                     opacity: 1.0
+                a
+                    display: block
+                    width: 100%
+                    height: 100%
             .icon-github
                 background-image: url('~assets/images/icon-github.png')
             .icon-behance
@@ -169,9 +204,10 @@
             margin-top: 16px
 
             @include pc-width
-                margin-top: 32px
+                margin-top: 24px
             .friend-button
                 color: $text-color-gray
+                display: block
                 padding-top: 6px
                 padding-bottom: 6px
                 padding-left: 8px
@@ -184,7 +220,7 @@
                 text-align: center
                 width: 80px
                 transition-duration: 0.2s
-                cursor: pointer
+                text-decoration: none
 
                 &:hover
                     color: $default-background-green-color

@@ -16,7 +16,8 @@
         </div>
         <div class="button-container">
             <div class="more-button">查看更多</div>
-            <div class="status-button">我要報名</div>
+            <a class="status-button" v-if="status" :href="link">我要報名</a>
+            <div class="status-button close-status" v-if="!status">活動結束</div>
         </div>
     </div>
   </div>
@@ -28,12 +29,38 @@
     data () {
       return {
         // imageSource: '../../src/assets/images/activity-demo.png',
-        imageSource: 'https://i.imgur.com/JR3ewe9.png',
-        title: '掰不完的夏天_迷你聚',
-        time: '2017-09-10  PM 1:30 - 5:30',
-        description: '好熱，一個未完成待續的夏天。我們都背著一個偉大的目標前進著。來吧！按下參加...',
-        status: 0
+        // imageSource: 'https://i.imgur.com/JR3ewe9.png',
+        // title: '掰不完的夏天_迷你聚',
+        // time: '2017-09-10  PM 1:30 - 5:30',
+        // description: '好熱，一個未完成待續的夏天。我們都背著一個偉大的目標前進著。來吧！按下參加...',
+        // status: 0
       }
+    },
+    props: {
+        imageSource: {
+            type: String,
+            default: "https://i.imgur.com/JR3ewe9.png",
+        },
+        title: {
+            type: String,
+            default: "掰不完的夏天_迷你聚",
+        },
+        time: {
+            type: String,
+            default: "2017-09-10  PM 1:30 - 5:30",
+        },
+        description: {
+            type: String,
+            default: "好熱，一個未完成待續的夏天。我們都背著一個偉大的目標前進著。來吧！按下參加...",
+        },
+        status: {
+            type: Boolean,
+            default: false,
+        },
+        link: {
+            type: String,
+            default: "https://www.facebook.com/events/123586401630141/",
+        }
     }
   }
 </script>
@@ -68,6 +95,7 @@
         @include pc-width
             padding: 16px 32px
         .activity-title
+            width: 100%
             font-size: 20px
             font-weight: 700
             text-align: left
@@ -88,7 +116,11 @@
             margin-top: 8px
 
     .button-container
+        position: absolute
+        width: 100%
         padding: 4px 16px
+        box-sizing: border-box
+        bottom: 16px
         @include pc-width
             padding: 8px 32px
         .more-button
@@ -122,7 +154,8 @@
             display: inline-block
             border-radius: 4px
             float: right
-            cursor: pointer
+            // cursor: pointer
+            text-decoration: none
             transition-duration: 0.2s
             font-size: 16px
             @include pc-width
@@ -132,5 +165,12 @@
                 padding-right: 16px
             &:hover
                 background: $default-background-dark-green-color
+
+        .close-status
+            background: $default-background-gray-color-2
+            cursor: default
+            &:hover
+                background: $default-background-gray-color-2
+
 
 </style>

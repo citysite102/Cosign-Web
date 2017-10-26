@@ -52,12 +52,13 @@
                         </swiper-slide>
                         <swiper-slide>
                             <transition name="fade-delay2" @after-enter="afterEnter">
-                                <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></memberCard>
+                                <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}" imageSource="https://i.imgur.com/iVIjNNr.jpg" name="Money" job="互動設計師" description="熱愛設計與閱讀，創作靈感常來自於日常生活中那些奇妙片刻。
+研究所時期邂逅了UX，踏上一段又一段使用者旅程，試著為世界創造一些美好。" facebook="https://www.facebook.com/profile.php?id=100010171684035"></memberCard>
                             </transition>
                         </swiper-slide>
                         <swiper-slide>
                             <transition name="fade-delay3" @after-enter="afterEnter">
-                                <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></memberCard>
+                                <memberCard v-show="isMemberCardShow" class="member-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}" imageSource="https://i.imgur.com/smJexCd.jpg" name="Gwynne" job="互動設計師" description="畢業於SCAD藝術設計學院，喜愛探索美好，擅長以使用者經驗的層面去設計互動體驗的本質，時常參與讀書會，長期關注介面設計與心理學。" facebook="https://www.facebook.com/GwynneLL"></memberCard>
                             </transition>
                         </swiper-slide>
                         <swiper-slide>
@@ -84,18 +85,18 @@
                     <div class="swiper-button-prev" slot="button-prev"></div>
                     <swiper :options="swiperOption">
                         <swiper-slide>
-                            <transition name="fade-delay1">
-                                <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
+                            <transition name="fade-delay2">
+                                <card v-show="isActivityCardShow" class="activity-card" imageSource="https://i.imgur.com/oLTfsHm.jpg" title="霜降。還來不及跟秋天說聲嗨_迷你聚#3" description="轉眼間秋天就要結束，霜降是秋季的最後一個節氣；是時候該來一次霜降系列（牛豬雞羊）的火鍋交流聚會囉。" :status="true" link="https://www.facebook.com/events/1893827037598431/" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
                             </transition>
                         </swiper-slide>
                         <swiper-slide>
-                            <transition name="fade-delay2">
-                                <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
+                            <transition name="fade-delay1">
+                                <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}" title="掰不完的夏天_迷你聚#2"></card>
                             </transition>
                         </swiper-slide>
                         <swiper-slide>
                             <transition name="fade-delay3">
-                                <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}"></card>
+                                <card v-show="isActivityCardShow" class="activity-card" v-bind:class="{ cardAnimation:isActivityCardFinishShow}" title="掰不完的夏天_迷你聚#1"></card>
                             </transition>
                         </swiper-slide>
                     </swiper>
@@ -120,7 +121,7 @@
                     </div>
                     <div class="join-text">
                         加入我們或者和我們聊聊
-                    </div>>
+                    </div>
                     <div class="contact-email">
                         <a :href="'mailto:theCosignstudio@gmail.com'">theCosignstudio@gmail.com</a>
                     </div>
@@ -483,7 +484,7 @@
         display: none;
 
     .swiper-container
-        height: 520px
+        height: 480px
         @include pc-width
             height: 600px
 
@@ -549,7 +550,7 @@
 
     .section-about
         background: #f8f8f8
-        height: auto
+        height: 600px
         h2
             width: 80%
             max-width: 720px
@@ -610,7 +611,7 @@
                 background: white
                 border: solid 1px $default-background-gray-color
                 width: 288px
-                height: 400px
+                height: 410px
                 &:hover
                     transform: translateY(-16px)
                     box-shadow: 0px 10px 20px RGBA(0,0,0,0.25)
@@ -622,7 +623,7 @@
                     margin-left: 0
                     margin-right: 0
                     width: 360px
-                    height: 500px
+                    height: 510px
 
 
             @include pc-width
@@ -743,7 +744,7 @@
         .feedback-container
             margin-left: auto
             margin-right: auto
-            height: 1200px
+            height: 1500px
             @include pc-width
                 width: 1200px
                 height: 800px
