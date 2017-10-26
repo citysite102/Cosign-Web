@@ -197,11 +197,11 @@
                 "回饋7還有很多的文字敘述喔！回饋7還有很多的文字敘述喔！回饋7還有很多的文字敘述喔！回饋7還有很多的文字敘述喔！回饋7還有很多的文字敘述喔！", 
                 "回饋8"],
                 photoPaths: [
-                    "../dist/activity-1.png",
-                    "../dist/activity-2.png",
-                    "../dist/activity-3.png",
-                    "../dist/activity-4.png",
-                    "../dist/activity-5.png"
+                    "https://i.imgur.com/Z8bZxU3.png",
+                    "https://i.imgur.com/PSUZwp3.png",
+                    "https://i.imgur.com/4z6Pjz0.png",
+                    "https://i.imgur.com/Bdtwos1.png",
+                    "https://i.imgur.com/E0i4hQM.png"
                 ],
                 swiperOption: {
                     // pagination: '.swiper-pagination',
@@ -576,7 +576,7 @@
 
     .section-about
         background: #fafafa
-        height: 560px
+        height: 520px
         h2
             width: 80%
             max-width: 720px
@@ -766,6 +766,7 @@
 
                 
     .section-photo
+        background: #fafafa
         .check-more
             width: 100%
             max-width: 1200px
@@ -777,7 +778,7 @@
             color: $text-color-gray-light
 
     .section-feedback
-        background: #fafafa
+        // background: #fafafa
         height: auto
         .feedback-container
             margin-left: auto
@@ -864,13 +865,6 @@
             opacity: 0.75
             line-height: 200px
             margin: 0
-  
-    .el-carousel__item:nth-child(2n) 
-        background-color: #ffffff
-  
-  
-    .el-carousel__item:nth-child(2n+1) 
-        background-color: #ffffff
     
     .hiddenClass 
         transition: all 0.8s ease
